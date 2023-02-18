@@ -1,11 +1,11 @@
-import React from "react";
-import Constants from "expo-constants";
+import type { AppRouter } from "@acme/api";
+import { transformer } from "@acme/api/transformer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
 import { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
-import type { AppRouter } from "@acme/api";
-import { transformer } from "@acme/api/transformer";
+import Constants from "expo-constants";
+import React from "react";
 
 /**
  * A set of typesafe hooks for consuming your API.
@@ -36,8 +36,10 @@ const getBaseUrl = () => {
    */
   const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
   if (!localhost) {
-    // return "https://your-production-url.com";
-    throw new Error("Failed to get localhost. Please point to your production server.");
+    return "https://raveapp.vercel.app";
+    throw new Error(
+      "Failed to get localhost. Please point to your production server.",
+    );
   }
   return `http://${localhost}:3000`;
 };
