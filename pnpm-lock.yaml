@@ -38,7 +38,7 @@ importers:
       '@babel/preset-env': ^7.20.0
       '@babel/runtime': ^7.20.0
       '@expo/config-plugins': ^6.0.0
-      '@shopify/flash-list': 1.4.0
+      '@shopify/flash-list': 1.4.1
       '@tanstack/react-query': ^4.23.0
       '@trpc/client': ^10.9.0
       '@trpc/react-query': ^10.9.0
@@ -63,7 +63,7 @@ importers:
     dependencies:
       '@acme/api': link:../../packages/api
       '@acme/tailwind-config': link:../../packages/config/tailwind
-      '@shopify/flash-list': 1.4.0_xf5fkbfc3c37hoqfuar2ll7ney
+      '@shopify/flash-list': 1.4.1_xf5fkbfc3c37hoqfuar2ll7ney
       '@tanstack/react-query': 4.24.6_bblof3d6od7kdqr2urb3dykbey
       '@trpc/client': 10.11.1_@trpc+server@10.11.1
       '@trpc/react-query': 10.11.1_2pugaexxlcekgcbbhj75jqmiqi
@@ -2550,8 +2550,8 @@ packages:
       join-component: 1.1.0
     dev: false
 
-  /@shopify/flash-list/1.4.0_xf5fkbfc3c37hoqfuar2ll7ney:
-    resolution: {integrity: sha512-PvPOyk353LuETFnNA038+QaJsAFlCQ2TYC7DHP3YnYqTX72g2BM6qLoLsPaptXKuoXX+dinOo0MbEm7HDjTy1g==}
+  /@shopify/flash-list/1.4.1_xf5fkbfc3c37hoqfuar2ll7ney:
+    resolution: {integrity: sha512-yM5dlhqolO/R8FKomqCrSYz0Cc82vJDikxhbu1CXXGp3rPvo/ceP9jJyKueW96SXHsn/87fcSq2BjztWjlp74Q==}
     peerDependencies:
       '@babel/runtime': '*'
       react: '*'
