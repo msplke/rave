@@ -17,9 +17,9 @@
 
 ## Project Structure
 
-This project is based on the [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) template repository, a monorepo built off the [T3 Stack](https://create.t3.gg/).
+This project is based on the [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) template repository, a monorepo built off the [T3 Stack](https://create.t3.gg).
 
-It uses [Turborepo](https://turborepo.org/) and contains:
+It uses [Turborepo](https://turbo.build/repo) and contains:
 
 ```
 .github
