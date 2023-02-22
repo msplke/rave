@@ -1,17 +1,23 @@
 # Rave
 
-> The ultimate answer to the age-old question: "Where the party at?"
+> A mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses.
 
 ## Table of Contents
 
+- [Description](#description)
 - [Project Structure](#project-structure)
 - [Quickstart](#quickstart)
 - [Project Status](#project-status)
 - [Contact](#contact)
 
+## Description
+
+- Rave is a mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses. The app provides an easy-to-use interface that makes it simple for users to browse events by date, category, or location. Users can also RSVP to events, receive event reminders, and share events with friends.
+- Whether it's club meetings, parties, sports games, cultural events, volunteer opportunities, or workshops, our app is the go-to destination for students who want to stay connected and make the most of their campus experience.
+
 ## Project Structure
 
-This project is built off the [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) template repository — a monorepo based on the [create-t3-app](https://github.com/t3-oss/create-t3-app) stack.
+This project is based on the [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) template repository, a monorepo built off the [T3 Stack](https://create.t3.gg/).
 
 It uses [Turborepo](https://turborepo.org/) and contains:
 
@@ -73,7 +79,7 @@ pnpm db:push
    > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once before you can run it using the turbo `dev`-script.
 
 ```diff
-+  "dev": "expo start --ios",
++  "dev": "npx expo start --ios",
 ```
 
 3. Run `pnpm dev` at the project root folder.
@@ -86,14 +92,16 @@ pnpm db:push
 2. Change the `dev` script at `apps/expo/package.json` to open the Android emulator.
 
 ```diff
-+  "dev": "expo start --android",
++  "dev": "npx expo start --android",
 ```
 
 3. Run `pnpm dev` at the project root folder.
 
 ## Project Status
 
-Project is: _in progress_.
+🚧 **In Development** 🚧
+
+Rave is currently _early_ in its development cycle. The app is not yet functional but is being actively developed. You may "watch" the project and leave a star to receive updates.
 
 ## Contact
 
