@@ -6,10 +6,10 @@ const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   scheme: "expo",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "./assets/icon.png",
+  icon: "./src/assets/icon.png",
   userInterfaceStyle: "light",
   splash: {
-    image: "./assets/icon.png",
+    image: "./src/assets/icon.png",
     resizeMode: "contain",
     backgroundColor: "#1F104A",
   },
@@ -23,7 +23,7 @@ const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: "./assets/icon.png",
+      foregroundImage: "./src/assets/icon.png",
       backgroundColor: "#1F104A",
     },
   },
