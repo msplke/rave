@@ -38,7 +38,6 @@ importers:
       '@babel/preset-env': ^7.20.0
       '@babel/runtime': ^7.20.0
       '@expo/config-plugins': ^6.0.0
-      '@shopify/flash-list': 1.4.0
       '@tanstack/react-query': ^4.23.0
       '@trpc/client': ^10.9.0
       '@trpc/react-query': ^10.9.0
@@ -63,7 +62,6 @@ importers:
     dependencies:
       '@acme/api': link:../../packages/api
       '@acme/tailwind-config': link:../../packages/config/tailwind
-      '@shopify/flash-list': 1.4.0_xf5fkbfc3c37hoqfuar2ll7ney
       '@tanstack/react-query': 4.24.6_bblof3d6od7kdqr2urb3dykbey
       '@trpc/client': 10.11.1_@trpc+server@10.11.1
       '@trpc/react-query': 10.11.1_2pugaexxlcekgcbbhj75jqmiqi
@@ -2548,20 +2546,6 @@ packages:
     dependencies:
       component-type: 1.2.1
       join-component: 1.1.0
-    dev: false
-
-  /@shopify/flash-list/1.4.0_xf5fkbfc3c37hoqfuar2ll7ney:
-    resolution: {integrity: sha512-PvPOyk353LuETFnNA038+QaJsAFlCQ2TYC7DHP3YnYqTX72g2BM6qLoLsPaptXKuoXX+dinOo0MbEm7HDjTy1g==}
-    peerDependencies:
-      '@babel/runtime': '*'
-      react: '*'
-      react-native: '*'
-    dependencies:
-      '@babel/runtime': 7.20.13
-      react: 18.2.0
-      react-native: 0.71.3_oo5no556diumlvgcr27pvljqai
-      recyclerlistview: 4.2.0_yqouayos4dnow7nnkhah4yzuzq
-      tslib: 2.4.0
     dev: false
 
   /@sideway/address/4.1.4:
@@ -8300,19 +8284,6 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /recyclerlistview/4.2.0_yqouayos4dnow7nnkhah4yzuzq:
-    resolution: {integrity: sha512-uuBCi0c+ggqHKwrzPX4Z/mJOzsBbjZEAwGGmlwpD/sD7raXixdAbdJ6BTcAmuWG50Cg4ru9p12M94Njwhr/27A==}
-    peerDependencies:
-      react: '>= 15.2.1'
-      react-native: '>= 0.30.0'
-    dependencies:
-      lodash.debounce: 4.0.8
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-native: 0.71.3_oo5no556diumlvgcr27pvljqai
-      ts-object-utils: 0.0.5
-    dev: false
-
   /regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
     engines: {node: '>=4'}
@@ -9314,10 +9285,6 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: false
 
-  /ts-object-utils/0.0.5:
-    resolution: {integrity: sha512-iV0GvHqOmilbIKJsfyfJY9/dNHCs969z3so90dQWsO1eMMozvTpnB1MEaUbb3FYtZTGjv5sIy/xmslEz0Rg2TA==}
-    dev: false
-
   /tsconfig-paths/3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
     dependencies:
@@ -9329,10 +9296,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-
-  /tslib/2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
-    dev: false
 
   /tslib/2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
