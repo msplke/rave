@@ -79,7 +79,7 @@ pnpm db:push
    > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once before you can run it using the turbo `dev`-script.
 
 ```diff
-+  "dev": "npx expo start --ios",
++  "dev": "expo start --ios",
 ```
 
 3. Run `pnpm dev` at the project root folder.
@@ -92,7 +92,7 @@ pnpm db:push
 2. Change the `dev` script at `apps/expo/package.json` to open the Android emulator.
 
 ```diff
-+  "dev": "npx expo start --android",
++  "dev": "expo start --android",
 ```
 
 3. Run `pnpm dev` at the project root folder.
