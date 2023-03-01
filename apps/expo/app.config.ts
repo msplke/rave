@@ -1,10 +1,10 @@
 import { type ConfigContext, type ExpoConfig } from "@expo/config";
 
 const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
-  name: "expo",
-  slug: "expo",
+  name: "rave",
+  slug: "Rave",
   scheme: "expo",
-  version: "1.0.0",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./src/assets/icon.png",
   userInterfaceStyle: "light",
