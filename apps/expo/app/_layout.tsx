@@ -23,6 +23,7 @@ const theme = {
 // It wraps your pages with the providers they need
 const RootLayout = () => {
   const [fontsLoaded] = useFonts({
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     "Inter-Regular": require("../src/assets/fonts/Inter-Regular.otf"),
   });
 
