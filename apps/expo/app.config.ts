@@ -3,6 +3,8 @@ import type { ExpoConfig } from "@expo/config";
 const defineConfig = (): ExpoConfig => ({
   name: "rave",
   slug: "Rave",
+  description:
+    "Stay up-to-date on upcoming events happening across your own and other campuses.",
   scheme: "expo",
   version: "0.1.0",
   orientation: "portrait",
