@@ -4,15 +4,15 @@
   "pipeline": {
     "db:generate": {
       "inputs": ["prisma/schema.prisma"],
-      "cache": false
+      "cache": true
     },
     "db:push": {
       "inputs": ["prisma/schema.prisma"],
-      "cache": false
+      "cache": true
     },
     "dev": {
       "persistent": true,
-      "cache": false
+      "cache": true
     },
     "build": {
       "dependsOn": ["^build", "^db:generate"],
@@ -21,14 +21,14 @@
     "lint": {},
     "lint:fix": {},
     "clean": {
-      "cache": false
+      "cache": true
     },
     "//#clean": {
-      "cache": false
+      "cache": true
     },
     "type-check": {
       "dependsOn": ["^db:generate"],
-      "cache": false
+      "cache": true
     }
   },
   "globalEnv": [
