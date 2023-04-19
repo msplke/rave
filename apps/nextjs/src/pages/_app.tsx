@@ -1,12 +1,13 @@
 import type { AppType } from "next/app";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import { Inter } from "@next/font/google";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 
-import { api } from "~/utils/api";
-import { rtlCache } from "~/utils/rtl-cache";
 import "~/styles/globals.css";
+import { api } from "~/utils/api";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -20,17 +21,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MantineProvider
-        emotionCache={rtlCache}
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: "light",
-        }}
-      >
+      <div className={inter.className}>
         <Component {...pageProps} />
-      </MantineProvider>
+      </div>
     </SessionProvider>
   );
 };
