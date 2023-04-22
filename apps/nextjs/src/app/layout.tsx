@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { TailwindIndicator, ThemeProvider } from "~/components";
+import {
+  Analytics,
+  SiteFooter,
+  StyleSwitcher,
+  TailwindIndicator,
+  ThemeProvider,
+  Toaster,
+} from "~/components";
 import { siteConfig } from "~/config/site";
 import "~/styles/globals.css";
 import { cn } from "~/utils/cnHelper";
@@ -9,7 +16,7 @@ import { cn } from "~/utils/cnHelper";
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
+  display: "block",
   variable: "--font-sans",
 });
 
@@ -22,8 +29,8 @@ export const metadata: Metadata = {
   keywords: ["Rave"],
   authors: [
     {
-      name: "petetkibuchi",
-      url: "https://www.peterkibuchi.com",
+      name: "peterkibuchi",
+      url: "https://github.com/peterkibuchi",
     },
   ],
   creator: "peterkibuchi",
@@ -45,7 +52,7 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning className={inter.className}>
@@ -59,13 +66,17 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
+              <SiteFooter />
             </div>
+
             <TailwindIndicator />
           </ThemeProvider>
+
+          <StyleSwitcher />
+          <Analytics />
+          <Toaster />
         </body>
       </html>
     </>
   );
-};
-
-export default RootLayout;
+}
