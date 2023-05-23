@@ -12,7 +12,7 @@
     },
     "dev": {
       "persistent": true,
-      "cache": true
+      "cache": false
     },
     "build": {
       "dependsOn": ["^build", "^db:generate"],
@@ -21,14 +21,14 @@
     "lint": {},
     "lint:fix": {},
     "clean": {
-      "cache": true
+      "cache": false
     },
     "//#clean": {
-      "cache": true
+      "cache": false
     },
     "type-check": {
       "dependsOn": ["^db:generate"],
-      "cache": true
+      "cache": false
     }
   },
   "globalEnv": [
