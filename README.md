@@ -1,6 +1,6 @@
 # Rave
 
-> A mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses.
+> An Expo mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses, as well as a NextJS web app for clubs and societies to engage existing members and find new ones.
 
 ## Table of Contents
 
@@ -12,8 +12,10 @@
 
 ## Description
 
-- Rave is a mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses. The app provides an easy-to-use interface that makes it simple for users to browse events by date, category, or location. Users can also receive event reminders, and share events with friends.
-- Whether it's club meetings, parties, sports, games, cultural events, volunteer opportunities, or workshops, Rave is the go-to destination for students who want to stay connected and make the most of their campus experience.
+- Rave comprises two parts:
+
+1. An Expo mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses. Whether it's club meetings, parties, sports, games, cultural events, volunteer opportunities, or workshops, Rave is the go-to destination for students who want to stay connected and make the most of their campus experience.
+2. A NextJS web app for clubs and societies to engage existing members and find new ones.
 
 ## Project Structure
 
@@ -24,7 +26,7 @@ It uses [Turborepo](https://turbo.build/repo) and contains:
 ```
 .github
   └─ workflows
-        └─ CI with pnpm cache setup
+      └─ CI with pnpm cache setup
 .vscode
   └─ Recommended extensions and settings for VSCode users
 apps
@@ -40,12 +42,12 @@ apps
       ├─ Tailwind CSS
       └─ E2E Typesafe API Server & Client
 packages
- ├─ api
- |   └─ tRPC v10 router definition
- ├─ auth
-     └─ authentication using next-auth. **NOTE: Only for Next.js app, not Expo**
- └─ db
-     └─ typesafe db-calls using Prisma
+  ├─ api
+  |   └─ tRPC v10 router definition
+  ├─ config
+  |   └─ Shared Tailwind & Eslint configs
+  └─ db
+      └─ Typesafe db calls using Prisma
 ```
 
 ## Quickstart

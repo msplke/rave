@@ -11,8 +11,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/auth": "^0.1.0",
     "@acme/db": "^0.1.0",
+    "@clerk/nextjs": "^4.18.4",
     "@trpc/client": "^10.27.1",
     "@trpc/server": "^10.27.1",
     "superjson": "1.12.3",

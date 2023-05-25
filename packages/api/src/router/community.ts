@@ -22,7 +22,7 @@ export const communityRouter = createTRPCRouter({
       }),
     )
     .mutation(({ ctx, input }) => {
-      const userId = ctx.session.user.id;
+      const userId = ctx.auth.userId;
 
       return ctx.prisma.community.create({
         data: {

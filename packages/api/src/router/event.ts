@@ -22,7 +22,7 @@ export const eventRouter = createTRPCRouter({
       }),
     )
     .mutation(({ ctx, input }) => {
-      const userId = ctx.session.user.id;
+      const userId = ctx.auth.userId;
 
       return ctx.prisma.event.create({
         data: {

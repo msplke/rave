@@ -1,10 +1,31 @@
 import React from "react";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  FlatList,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useRouter } from "expo-router";
-import { FlashList } from "@shopify/flash-list";
+import { useAuth } from "@clerk/clerk-expo";
 
 import { api, type RouterOutputs } from "~/utils/api";
+
+const SignOut = () => {
+  const { signOut } = useAuth();
+  return (
+    <View className="rounded-lg border-2 border-gray-500 p-4">
+      <Button
+        title="Sign Out"
+        onPress={() => {
+          void signOut();
+        }}
+      />
+    </View>
+  );
+};
 
 const PostCard: React.FC<{
   post: RouterOutputs["event"]["all"][number];
@@ -99,9 +120,8 @@ const Index = () => {
           </Text>
         </View>
 
-        <FlashList
+        <FlatList
           data={postQuery.data}
-          estimatedItemSize={20}
           ItemSeparatorComponent={() => <View className="h-2" />}
           renderItem={(p) => (
             <PostCard post={p.item} onDelete={() => console.log("Deleted")} />
@@ -109,6 +129,7 @@ const Index = () => {
         />
 
         <CreatePost />
+        <SignOut />
       </View>
     </SafeAreaView>
   );

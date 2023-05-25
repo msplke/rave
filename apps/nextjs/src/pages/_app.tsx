@@ -1,9 +1,8 @@
-import type { AppType } from "next/app";
+import type { AppProps, AppType } from "next/app";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import Head from "next/head";
-import type { Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import {
   Analytics,
@@ -26,12 +25,9 @@ const fontCal = LocalFont({
   variable: "--font-cal",
 });
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}) => {
+const MyApp: AppType = ({ Component, pageProps }: AppProps) => {
   return (
-    <SessionProvider session={session}>
+    <ClerkProvider {...pageProps}>
       <Head>
         <title>Rave</title>
         <meta name="Rave" content="Rave" />
@@ -57,7 +53,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           <Toaster />
         </ThemeProvider>
       </div>
-    </SessionProvider>
+    </ClerkProvider>
   );
 };
 
