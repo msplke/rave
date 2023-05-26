@@ -33,11 +33,7 @@ export const eventRouter = createTRPCRouter({
               id: input.communityId,
             },
           },
-          creator: {
-            connect: {
-              id: userId,
-            },
-          },
+          creatorId: userId,
         },
       });
     }),

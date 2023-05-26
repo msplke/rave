@@ -29,11 +29,7 @@ export const communityRouter = createTRPCRouter({
           handle: input.handle,
           name: input.name,
           about: input.about,
-          owner: {
-            connect: {
-              id: userId,
-            },
-          },
+          ownerId: userId,
         },
       });
     }),
