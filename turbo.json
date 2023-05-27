@@ -28,7 +28,7 @@
     },
     "type-check": {
       "dependsOn": ["^db:generate"],
-      "cache": false
+      "cache": true
     }
   },
   "globalEnv": [
