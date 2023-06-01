@@ -1,13 +1,17 @@
+"use client";
+
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 
-import { cn } from "~/utils/cnHelper";
+import { cn } from "~/utils/cnHelpers";
 
 const Sheet = SheetPrimitive.Root;
 
 const SheetTrigger = SheetPrimitive.Trigger;
+
+const SheetClose = SheetPrimitive.Close;
 
 const portalVariants = cva("fixed inset-0 z-50 flex", {
   variants: {
@@ -220,6 +224,7 @@ SheetDescription.displayName = SheetPrimitive.Description.displayName;
 export {
   Sheet,
   SheetTrigger,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetFooter,

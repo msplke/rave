@@ -1,4 +1,6 @@
-export const siteConfig = {
+import { type SiteConfig } from "~/types";
+
+export const siteConfig: SiteConfig = {
   name: "Rave",
   url: "https://rave.vercel.app",
   description:
@@ -7,5 +9,3 @@ export const siteConfig = {
     github: "https://github.com/msplke",
   },
 };
-
-export type SiteConfig = typeof siteConfig;

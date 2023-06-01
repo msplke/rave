@@ -9,10 +9,10 @@
 
 import { type NextRequest } from "next/server";
 import {
-  getAuth,
   type SignedInAuthObject,
   type SignedOutAuthObject,
-} from "@clerk/nextjs/server";
+} from "@clerk/nextjs/api";
+import { getAuth } from "@clerk/nextjs/server";
 import { TRPCError, initTRPC } from "@trpc/server";
 import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import superjson from "superjson";
@@ -42,7 +42,7 @@ type CreateContextOptions = {
  * - trpc's `createSSGHelpers` where we don't have req/res
  * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
-const createInnerTRPCContext = (opts: CreateContextOptions) => {
+export const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     auth: opts.auth,
     prisma,
@@ -68,7 +68,7 @@ export const createTRPCContext = (opts: FetchCreateContextFnOptions) => {
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
-const t = initTRPC.context<typeof createTRPCContext>().create({
+export const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
     return {
@@ -94,6 +94,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
  * @see https://trpc.io/docs/router
  */
 export const createTRPCRouter = t.router;
+export const mergeRouters = t.mergeRouters;
 
 /**
  * Public (unauthed) procedure
