@@ -22,7 +22,7 @@
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@manypkg/cli": "^0.20.0",
-    "@types/prettier": "^2.7.2",
+    "@types/prettier": "^2.7.3",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "turbo": "^1.9.9",
