@@ -23,12 +23,7 @@ module.exports = function (api) {
   return {
     presets: ["babel-preset-expo"],
     plugins: [
-      [
-        "nativewind/babel",
-        {
-          tailwindConfig: lazyLoadConfig(),
-        },
-      ],
+      ["nativewind/babel", { tailwindConfig: lazyLoadConfig() }],
       "expo-router/babel",
       ["module-resolver", { alias: { "~": "./src" } }],
     ],

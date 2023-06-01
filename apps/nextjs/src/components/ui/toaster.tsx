@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Toast,
   ToastClose,
@@ -8,7 +10,7 @@ import {
 } from "~/components/ui/toast";
 import { useToast } from "~/components/ui/use-toast";
 
-export default function Toaster() {
+export function Toaster() {
   const { toasts } = useToast();
 
   return (

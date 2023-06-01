@@ -8,6 +8,5 @@
     }
   ],
   "updateInternalDeps": true,
-  "rangeStrategy": "bump",
-  "automerge": true
+  "rangeStrategy": "bump"
 }
