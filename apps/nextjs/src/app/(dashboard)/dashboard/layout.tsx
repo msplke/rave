@@ -18,7 +18,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <MainNav items={dashboardConfig.mainNav} />
 
           <div className="ml-auto flex items-center space-x-4">
-            {/* @ts-expect-error - TS v5.0.* doesn't play well with async RSCs */}
             <UserAccountNav />
           </div>
         </div>
