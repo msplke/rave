@@ -8,12 +8,12 @@
  */
 
 import { type NextRequest } from "next/server";
-import {
-  type SignedInAuthObject,
-  type SignedOutAuthObject,
+import type {
+  SignedInAuthObject,
+  SignedOutAuthObject,
 } from "@clerk/nextjs/api";
 import { getAuth } from "@clerk/nextjs/server";
-import { TRPCError, initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import superjson from "superjson";
 import { ZodError } from "zod";
