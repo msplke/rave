@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=v18.16.1"
   },
-  "packageManager": "pnpm@8.6.5",
+  "packageManager": "pnpm@8.6.7",
   "scripts": {
     "build": "turbo build",
     "clean": "git clean -xdf node_modules",
@@ -20,11 +20,11 @@
     "type-check": "turbo type-check"
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@manypkg/cli": "^0.21.0",
     "@types/prettier": "^2.7.3",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "turbo": "^1.10.7",
     "typescript": "^5.1.6"
   }
