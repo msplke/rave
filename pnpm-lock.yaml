@@ -202,8 +202,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       class-variance-authority:
-        specifier: ^0.6.1
-        version: 0.6.1
+        specifier: ^0.7.0
+        version: 0.7.0
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -5682,10 +5682,10 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /class-variance-authority@0.6.1:
-    resolution: {integrity: sha512-eurOEGc7YVx3majOrOb099PNKgO3KnKSApOprXI4BTq6bcfbqbQXPN2u+rPPmIJ2di23bMwhk0SxCCthBmszEQ==}
+  /class-variance-authority@0.7.0:
+    resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
     dependencies:
-      clsx: 1.2.1
+      clsx: 2.0.0
     dev: false
 
   /clean-stack@2.2.0:
@@ -5756,11 +5756,6 @@ packages:
   /clone@2.1.2:
     resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
     engines: {node: '>=0.8'}
-    dev: false
-
-  /clsx@1.2.1:
-    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
-    engines: {node: '>=6'}
     dev: false
 
   /clsx@2.0.0:
