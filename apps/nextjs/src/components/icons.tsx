@@ -1,5 +1,4 @@
 import {
-  Infinity,
   AlertTriangle,
   ArrowRight,
   Check,
@@ -12,6 +11,7 @@ import {
   FileText,
   HelpCircle,
   Image,
+  Infinity,
   Laptop,
   Loader2,
   Moon,
@@ -24,11 +24,8 @@ import {
   Twitter,
   User,
   X,
-  type Icon as LucideIcon,
   type LucideProps,
 } from "lucide-react";
-
-export type Icon = LucideIcon;
 
 export const Icons = {
   // logo: (props: LucideProps) => (

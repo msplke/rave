@@ -1,14 +1,41 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { NextResponse } from "next/server";
+import { authMiddleware } from "@clerk/nextjs/server";
 
 export default authMiddleware({
+  signInUrl: "/signin",
   publicRoutes: [
     "/",
     "/api(.*)",
     "/signin(.*)",
     "/sso-callback(.*)",
+    "/pricing(.*)",
     "/privacy(.*)",
     "/terms(.*)",
   ],
+
+  afterAuth(auth, req) {
+    if (auth.isPublicRoute) {
+      // Don't do anything for public routes
+      return NextResponse.next();
+    }
+
+    const url = new URL(req.nextUrl.origin);
+
+    if (!auth.userId) {
+      // User is not signed in
+      url.pathname = "/signin";
+      return NextResponse.redirect(url);
+    }
+
+    if (req.nextUrl.pathname === "/dashboard") {
+      // `/dashboard` should redirect to the user's dashboard and
+      // use their current workspace, i.e. `/:orgId` or `/:userId`
+      url.pathname = `/${auth.orgId ?? auth.userId}`;
+      return NextResponse.redirect(url);
+    }
+
+    return NextResponse.next();
+  },
 });
 
 export const config = {

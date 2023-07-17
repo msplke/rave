@@ -4,10 +4,10 @@ import * as React from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
-import { cn } from "~/utils/cnHelpers";
 import TeamSwitcher from "~/app/(dashboard)/components/team-switcher";
 import { Icons, MobileNav } from "~/components";
 import { type MainNavItem } from "~/types";
+import { cn } from "~/utils/cnHelpers";
 
 interface MainNavProps {
   items?: MainNavItem[];

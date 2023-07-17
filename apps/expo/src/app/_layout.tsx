@@ -12,16 +12,16 @@ const CLERK_PUBLISHABLE_KEY =
 
 // This is the main layout of the app
 // It wraps your pages with the providers they need
-const RootLayout = () => {
+export default function RootLayout() {
   return (
     <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
       <TRPCProvider>
         <SignedIn>
           <SafeAreaProvider>
             {/*
-          The Stack component displays the current page.
-          It also allows you to configure your screens 
-        */}
+              The Stack component displays the current page. 
+              It also allows you to configure your screens
+            */}
             <Stack
               screenOptions={{
                 headerStyle: {
@@ -38,6 +38,4 @@ const RootLayout = () => {
       </TRPCProvider>
     </ClerkProvider>
   );
-};
-
-export default RootLayout;
+}

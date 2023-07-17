@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Check, ChevronsUpDown, PlusCircle } from "lucide-react";
 
-import { cn } from "~/utils/cnHelpers";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import {
@@ -38,6 +37,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import { cn } from "~/utils/cnHelpers";
 
 const groups = [
   {
@@ -76,7 +76,6 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
   const [open, setOpen] = React.useState(false);
   const [showNewTeamDialog, setShowNewTeamDialog] = React.useState(false);
   const [selectedTeam, setSelectedTeam] = React.useState<Team>(
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     groups[0]!.teams[0]!,
   );
 

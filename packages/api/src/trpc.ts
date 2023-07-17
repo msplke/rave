@@ -14,7 +14,6 @@ import type {
 } from "@clerk/nextjs/api";
 import { getAuth } from "@clerk/nextjs/server";
 import { initTRPC, TRPCError } from "@trpc/server";
-import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
@@ -29,9 +28,11 @@ import { prisma } from "@acme/db";
  * processing a request
  *
  */
-type CreateContextOptions = {
-  auth: SignedInAuthObject | SignedOutAuthObject;
-};
+interface CreateContextOptions {
+  auth: SignedInAuthObject | SignedOutAuthObject | null;
+  // apiKey?: string | null;
+  req?: NextRequest;
+}
 
 /**
  * This helper generates the "internals" for a tRPC context. If you need to use
@@ -44,7 +45,7 @@ type CreateContextOptions = {
  */
 export const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
-    auth: opts.auth,
+    ...opts,
     prisma,
   };
 };
@@ -54,11 +55,14 @@ export const createInnerTRPCContext = (opts: CreateContextOptions) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = (opts: FetchCreateContextFnOptions) => {
-  const auth = getAuth(opts.req as NextRequest);
+export const createTRPCContext = (opts: { req: NextRequest }) => {
+  const auth = getAuth(opts.req);
+  // const apiKey = opts.req.headers.get("x-acme-api-key");
 
   return createInnerTRPCContext({
     auth,
+    // apiKey,
+    req: opts.req,
   });
 };
 
@@ -109,8 +113,8 @@ export const publicProcedure = t.procedure;
  * Reusable middleware that enforces users are logged in before running the
  * procedure
  */
-const ensureUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.auth.userId) {
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.auth?.userId) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
       message: "Not Authenticated",
@@ -119,8 +123,11 @@ const ensureUserIsAuthed = t.middleware(({ ctx, next }) => {
 
   return next({
     ctx: {
-      // Infers the `auth` as non-nullable
-      auth: ctx.auth,
+      // Infers `auth` as non-nullable
+      auth: {
+        ...ctx.auth,
+        userId: ctx.auth.userId,
+      },
     },
   });
 });
@@ -134,4 +141,4 @@ const ensureUserIsAuthed = t.middleware(({ ctx, next }) => {
  *
  * @see https://trpc.io/docs/procedures
  */
-export const protectedProcedure = t.procedure.use(ensureUserIsAuthed);
+export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);

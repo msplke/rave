@@ -4,10 +4,12 @@ import LocalFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "~/styles/globals.css";
-import { cn } from "~/utils/cnHelpers";
-import { Toaster } from "~/components/ui/toaster";
+
+import { TRPCReactProvider } from "~/app/providers";
 import { Analytics, TailwindIndicator, ThemeProvider } from "~/components";
+import { Toaster } from "~/components/ui/toaster";
 import { siteConfig } from "~/config/site";
+import { cn } from "~/utils/cnHelpers";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -61,30 +63,31 @@ export const metadata: Metadata = {
     // images: [`${siteConfig.url}/og.jpg`],
     // creator: "@example",
   },
+  metadataBase: new URL("https://rave.vercel.app"),
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
-      <ClerkProvider>
-        <html lang="en" suppressHydrationWarning>
-          <head />
-          <body
-            className={cn(
-              "min-h-screen bg-background font-sans antialiased",
-              fontSans.variable,
-              fontCal.variable,
-            )}
-          >
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+          fontCal.variable,
+        )}
+      >
+        <TRPCReactProvider>
+          <ClerkProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               {children}
               <Analytics />
               <TailwindIndicator />
               <Toaster />
             </ThemeProvider>
-          </body>
-        </html>
-      </ClerkProvider>
-    </>
+          </ClerkProvider>
+        </TRPCReactProvider>
+      </body>
+    </html>
   );
 }
