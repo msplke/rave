@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Icons } from "~/components";
+import { siteConfig } from "~/config/site";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -24,7 +25,7 @@ export default function AuthLayout(props: AuthLayoutProps) {
           className="absolute left-8 top-8 z-20 flex items-center text-lg font-bold tracking-tight"
         >
           <Icons.logo className="mr-2 h-6 w-6" />
-          <span>Rave</span>
+          <span>{siteConfig.name}</span>
         </Link>
       </div>
 

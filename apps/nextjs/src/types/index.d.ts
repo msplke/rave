@@ -2,11 +2,11 @@ import { type User } from "@prisma/client";
 
 import { type Icons } from "~/components/icons";
 
-export type NavItem = {
+export interface NavItem {
   title: string;
   href: string;
   disabled?: boolean;
-};
+}
 
 export type MainNavItem = NavItem;
 
@@ -26,7 +26,7 @@ export type SidebarNavItem = {
     }
 );
 
-export type SiteConfig = {
+export interface SiteConfig {
   name: string;
   url: string;
   description: string;
@@ -35,27 +35,27 @@ export type SiteConfig = {
     github: string;
     twitter?: string;
   };
-};
+}
 
-export type DashboardConfig = {
+export interface DashboardConfig {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
-};
+}
 
-export type DocsConfig = {
+export interface DocsConfig {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
-};
+}
 
-export type MarketingConfig = {
+export interface MarketingConfig {
   mainNav: MainNavItem[];
-};
+}
 
-export type SubscriptionPlan = {
+export interface SubscriptionPlan {
   name: string;
   description: string;
   stripePriceId: string;
-};
+}
 
 export type UserSubscriptionPlan = SubscriptionPlan &
   Pick<User, "stripeCustomerId" | "stripeSubscriptionId"> & {

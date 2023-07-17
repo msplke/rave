@@ -13,8 +13,9 @@ import { useAuth } from "@clerk/clerk-expo";
 
 import { api, type RouterOutputs } from "~/utils/api";
 
-const SignOut = () => {
+function SignOut() {
   const { signOut } = useAuth();
+
   return (
     <View className="rounded-lg border-2 border-gray-500 p-4">
       <Button
@@ -25,12 +26,14 @@ const SignOut = () => {
       />
     </View>
   );
-};
+}
 
-const PostCard: React.FC<{
+interface PostCardProps {
   post: RouterOutputs["event"]["all"][number];
   onDelete: () => void;
-}> = ({ post, onDelete }) => {
+}
+
+function PostCard({ post, onDelete }: PostCardProps) {
   const router = useRouter();
 
   return (
@@ -48,9 +51,9 @@ const PostCard: React.FC<{
       </TouchableOpacity>
     </View>
   );
-};
+}
 
-const CreatePost: React.FC = () => {
+function CreatePost() {
   // const utils = api.useContext();
 
   const [title, setTitle] = React.useState("");
@@ -92,9 +95,9 @@ const CreatePost: React.FC = () => {
       </TouchableOpacity>
     </View>
   );
-};
+}
 
-const Index = () => {
+export default function Index() {
   const utils = api.useContext();
 
   const postQuery = api.event.all.useQuery();
@@ -133,6 +136,4 @@ const Index = () => {
       </View>
     </SafeAreaView>
   );
-};
-
-export default Index;
+}

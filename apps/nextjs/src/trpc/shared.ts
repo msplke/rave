@@ -1,7 +1,7 @@
 import {
   httpBatchLink,
+  type HTTPBatchLinkOptions,
   type HTTPHeaders,
-  type HttpBatchLinkOptions,
   type TRPCLink,
 } from "@trpc/client";
 
@@ -20,7 +20,7 @@ export const endingLink = (opts?: { headers?: HTTPHeaders }) =>
   ((runtime) => {
     const sharedOpts = {
       headers: opts?.headers,
-    } satisfies Partial<HttpBatchLinkOptions>;
+    } satisfies Partial<HTTPBatchLinkOptions>;
 
     const edgeLink = httpBatchLink({
       ...sharedOpts,
@@ -34,8 +34,6 @@ export const endingLink = (opts?: { headers?: HTTPHeaders }) =>
     return (ctx) => {
       const path = ctx.op.path.split(".") as [string, ...string[]];
       const endpoint = lambdas.includes(path[0]) ? "lambda" : "edge";
-
-      console.log({ endpoint, path });
 
       const newCtx = {
         ...ctx,

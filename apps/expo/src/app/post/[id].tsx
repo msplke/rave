@@ -1,8 +1,8 @@
 import { SafeAreaView, Text, View } from "react-native";
-import { SplashScreen, Stack, useSearchParams } from "expo-router";
+import { SplashScreen, Stack, useGlobalSearchParams } from "expo-router";
 
-const Post: React.FC = () => {
-  const { id } = useSearchParams();
+export default function Post() {
+  const { id } = useGlobalSearchParams();
   if (!id || typeof id !== "string") throw new Error("unreachable");
   const { data } = { data: { title: "Title", content: "Content" } };
 
@@ -17,6 +17,4 @@ const Post: React.FC = () => {
       </View>
     </SafeAreaView>
   );
-};
-
-export default Post;
+}
