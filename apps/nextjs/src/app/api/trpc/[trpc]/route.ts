@@ -24,7 +24,7 @@ export function OPTIONS() {
   return response;
 }
 
-async function handler(req: NextRequest) {
+const handler = async (req: NextRequest) => {
   const response = await fetchRequestHandler({
     endpoint: "/api/trpc",
     router: appRouter,
@@ -38,7 +38,7 @@ async function handler(req: NextRequest) {
 
   setCorsHeaders(response);
   return response;
-}
+};
 
 // Export API handler
 export { handler as GET, handler as POST };

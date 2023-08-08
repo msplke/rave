@@ -8,4 +8,6 @@ export const siteConfig: SiteConfig = {
   links: {
     github: "https://github.com/msplke",
   },
+  creator: "Peter Kibuchi",
+  authors: [{ name: "Peter Kibuchi", url: "https://www.peterkibuchi.com" }],
 };

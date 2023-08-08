@@ -2,8 +2,8 @@ import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
+  content: ["./src/**/*.{ts,tsx}"],
   darkMode: ["class"],
-  content: ["src/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -48,12 +48,9 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      borderColor: {
-        DEFAULT: "hsl(var(--border) / <alpha-value>)",
-      },
       borderRadius: {
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
@@ -69,38 +66,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-up": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(10px)",
-          },
-          "80%": {
-            opacity: "0.6",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-        },
-        "fade-down": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(-10px)",
-          },
-          "80%": {
-            opacity: "0.6",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fade-up 0.5s",
-        "fade-down": "fade-down 0.5s",
       },
     },
   },

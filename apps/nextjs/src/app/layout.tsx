@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import LocalFont from "next/font/local";
+import { headers } from "next/headers";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "~/styles/globals.css";
@@ -9,14 +10,14 @@ import { TRPCReactProvider } from "~/app/providers";
 import { Analytics, TailwindIndicator, ThemeProvider } from "~/components";
 import { Toaster } from "~/components/ui/toaster";
 import { siteConfig } from "~/config/site";
-import { cn } from "~/utils/cnHelpers";
+import { cn } from "~/lib/utils";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 const fontCal = LocalFont({
-  src: "../styles/calsans.ttf",
+  src: "../styles/CalSans-SemiBold.woff2",
   variable: "--font-cal",
 });
 
@@ -32,12 +33,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: ["Rave"],
   creator: "Peter Kibuchi",
-  authors: [
-    {
-      name: "Peter Kibuchi",
-      url: "https://github.com/peterkibuchi",
-    },
-  ],
+  authors: siteConfig.authors,
   icons: {
     icon: "/favicon.ico",
     // shortcut: "/favicon-16x16.png",
@@ -51,6 +47,14 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    // images: [
+    //   {
+    //     url: siteConfig.ogImage,
+    //     width: 1200,
+    //     height: 630,
+    //     alt: siteConfig.name,
+    //   },
+    // ],
   },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
@@ -63,31 +67,37 @@ export const metadata: Metadata = {
     // images: [`${siteConfig.url}/og.jpg`],
     // creator: "@example",
   },
-  metadataBase: new URL("https://rave.vercel.app"),
+  metadataBase: new URL(siteConfig.url),
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-          fontCal.variable,
-        )}
-      >
-        <TRPCReactProvider>
-          <ClerkProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              {children}
-              <Analytics />
-              <TailwindIndicator />
-              <Toaster />
-            </ThemeProvider>
-          </ClerkProvider>
-        </TRPCReactProvider>
-      </body>
-    </html>
+    <>
+      <ClerkProvider>
+        <html lang="en" suppressHydrationWarning>
+          <body
+            className={cn(
+              "min-h-screen bg-background font-sans antialiased",
+              fontSans.variable,
+              fontCal.variable,
+            )}
+          >
+            <TRPCReactProvider headers={headers()}>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+              >
+                {children}
+
+                <Analytics />
+                <TailwindIndicator />
+                <Toaster />
+              </ThemeProvider>
+            </TRPCReactProvider>
+          </body>
+        </html>
+      </ClerkProvider>
+    </>
   );
 }

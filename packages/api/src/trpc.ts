@@ -30,7 +30,6 @@ import { prisma } from "@acme/db";
  */
 interface CreateContextOptions {
   auth: SignedInAuthObject | SignedOutAuthObject | null;
-  // apiKey?: string | null;
   req?: NextRequest;
 }
 
@@ -43,7 +42,7 @@ interface CreateContextOptions {
  * - trpc's `createSSGHelpers` where we don't have req/res
  * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
-export const createInnerTRPCContext = (opts: CreateContextOptions) => {
+const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     ...opts,
     prisma,
@@ -57,11 +56,12 @@ export const createInnerTRPCContext = (opts: CreateContextOptions) => {
  */
 export const createTRPCContext = (opts: { req: NextRequest }) => {
   const auth = getAuth(opts.req);
-  // const apiKey = opts.req.headers.get("x-acme-api-key");
+  const source = opts.req?.headers.get("x-trpc-source") ?? "unknown";
+
+  console.log(">>> tRPC Request from", source, "by", auth.userId);
 
   return createInnerTRPCContext({
     auth,
-    // apiKey,
     req: opts.req,
   });
 };
@@ -72,7 +72,7 @@ export const createTRPCContext = (opts: { req: NextRequest }) => {
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
-export const t = initTRPC.context<typeof createTRPCContext>().create({
+const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
     return {
@@ -98,7 +98,6 @@ export const t = initTRPC.context<typeof createTRPCContext>().create({
  * @see https://trpc.io/docs/router
  */
 export const createTRPCRouter = t.router;
-export const mergeRouters = t.mergeRouters;
 
 /**
  * Public (unauthed) procedure
@@ -115,10 +114,7 @@ export const publicProcedure = t.procedure;
  */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
   if (!ctx.auth?.userId) {
-    throw new TRPCError({
-      code: "UNAUTHORIZED",
-      message: "Not Authenticated",
-    });
+    throw new TRPCError({ code: "UNAUTHORIZED" });
   }
 
   return next({

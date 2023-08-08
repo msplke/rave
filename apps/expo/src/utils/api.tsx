@@ -30,7 +30,7 @@ const getBaseUrl = () => {
   const localhost = debuggerHost?.split(":")[0];
 
   if (!localhost) {
-    return "https://rave.vercel.app";
+    // return "https://your-production-url.com";
     throw new Error(
       "Failed to get localhost. Please point to your production server.",
     );
@@ -50,6 +50,11 @@ export function TRPCProvider({ children }: { children: React.ReactNode }) {
       links: [
         httpBatchLink({
           url: `${getBaseUrl()}/api/trpc`,
+          headers() {
+            const headers = new Map<string, string>();
+            headers.set("x-trpc-source", "expo-react");
+            return Object.fromEntries(headers);
+          },
         }),
       ],
     }),

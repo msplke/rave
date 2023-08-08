@@ -26,7 +26,7 @@
     "//#clean": {
       "cache": false
     },
-    "type-check": {
+    "typecheck": {
       "dependsOn": ["^db:generate"],
       "cache": true
     }
@@ -36,14 +36,9 @@
     "CLERK_SECRET_KEY",
     "DATABASE_URL",
     "EXPO_ROUTER_APP_ROOT",
-    "NEXTJS_APP_URL",
-    "NEXT_PUBLIC_APP_URL",
     "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-    "NEXT_PUBLIC_CLERK_SIGN_IN_URL",
-    "NEXT_PUBLIC_CLERK_SIGN_UP_URL",
-    "NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL",
-    "NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL",
     "NODE_ENV",
+    "PORT",
     "SKIP_ENV_VALIDATION",
     "VERCEL",
     "VERCEL_URL"

@@ -1,49 +1,27 @@
 import React from "react";
-import {
-  Button,
-  FlatList,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useRouter } from "expo-router";
-import { useAuth } from "@clerk/clerk-expo";
+import { FlashList } from "@shopify/flash-list";
 
 import { api, type RouterOutputs } from "~/utils/api";
 
-function SignOut() {
-  const { signOut } = useAuth();
-
-  return (
-    <View className="rounded-lg border-2 border-gray-500 p-4">
-      <Button
-        title="Sign Out"
-        onPress={() => {
-          void signOut();
-        }}
-      />
-    </View>
-  );
-}
-
-interface PostCardProps {
-  post: RouterOutputs["event"]["all"][number];
+interface EventCardProps {
+  event: RouterOutputs["event"]["all"][number];
   onDelete: () => void;
 }
 
-function PostCard({ post, onDelete }: PostCardProps) {
+function EventCard({ event, onDelete }: EventCardProps) {
   const router = useRouter();
 
   return (
     <View className="flex flex-row rounded-lg bg-white/10 p-4">
       <View className="flex-grow">
-        <TouchableOpacity onPress={() => router.push(`/post/${post.id}`)}>
+        <TouchableOpacity onPress={() => router.push(`/post/${event.id}`)}>
           <Text className="text-xl font-semibold text-pink-400">
-            {post.title}
+            {event.title}
           </Text>
-          <Text className="mt-2 text-white">{post.content}</Text>
+          <Text className="mt-2 text-white">{event.content}</Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity onPress={onDelete}>
@@ -58,6 +36,14 @@ function CreatePost() {
 
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
+
+  // const { mutate, error } = api.event.create.useMutation({
+  //   async onSuccess() {
+  //     setTitle("");
+  //     setContent("");
+  //     await utils.event.all.invalidate();
+  //   },
+  // });
 
   return (
     <View className="mt-4">
@@ -89,7 +75,7 @@ function CreatePost() {
 
       <TouchableOpacity
         className="rounded bg-pink-400 p-2"
-        onPress={() => console.log("Mutate")}
+        onPress={() => console.log("Post Submitted")}
       >
         <Text className="font-semibold text-white">Publish post</Text>
       </TouchableOpacity>
@@ -100,7 +86,11 @@ function CreatePost() {
 export default function Index() {
   const utils = api.useContext();
 
-  const postQuery = api.event.all.useQuery();
+  const eventQuery = api.event.all.useQuery();
+
+  const deleteEventMutation = api.event.delete.useMutation({
+    onSettled: () => utils.event.all.invalidate(),
+  });
 
   return (
     <SafeAreaView className="bg-[#1F104A]">
@@ -123,16 +113,19 @@ export default function Index() {
           </Text>
         </View>
 
-        <FlatList
-          data={postQuery.data}
+        <FlashList
+          data={eventQuery.data}
+          estimatedItemSize={20}
           ItemSeparatorComponent={() => <View className="h-2" />}
           renderItem={(p) => (
-            <PostCard post={p.item} onDelete={() => console.log("Deleted")} />
+            <EventCard
+              event={p.item}
+              onDelete={() => deleteEventMutation.mutate(p.item.id)}
+            />
           )}
         />
 
         <CreatePost />
-        <SignOut />
       </View>
     </SafeAreaView>
   );
