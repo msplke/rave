@@ -6,15 +6,8 @@
       "~/*": ["./src/*"]
     },
     "plugins": [{ "name": "next" }],
-    "strictNullChecks": true
+    "strict": true
   },
   "exclude": [],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.cjs",
-    "**/*.mjs",
-    ".next/types/**/*.ts"
-  ]
+  "include": ["next-env.d.ts", "src", "*.ts", "*.mjs", ".next/types/**/*.ts"]
 }

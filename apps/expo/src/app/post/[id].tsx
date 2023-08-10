@@ -3,6 +3,7 @@ import { SplashScreen, Stack, useGlobalSearchParams } from "expo-router";
 
 export default function Post() {
   const { id } = useGlobalSearchParams();
+
   if (!id || typeof id !== "string") throw new Error("unreachable");
   const { data } = { data: { title: "Title", content: "Content" } };
 

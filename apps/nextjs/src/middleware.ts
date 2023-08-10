@@ -2,14 +2,13 @@ import { NextResponse } from "next/server";
 import { authMiddleware } from "@clerk/nextjs/server";
 
 export default authMiddleware({
-  signInUrl: "/signin",
+  signInUrl: "/login",
   publicRoutes: [
     "/",
-    "/api(.*)",
-    "/signin(.*)",
-    "/sso-callback(.*)",
+    "/login(.*)",
     "/pricing(.*)",
     "/privacy(.*)",
+    "/sso-callback(.*)",
     "/terms(.*)",
   ],
 
@@ -23,14 +22,7 @@ export default authMiddleware({
 
     if (!auth.userId) {
       // User is not signed in
-      url.pathname = "/signin";
-      return NextResponse.redirect(url);
-    }
-
-    if (req.nextUrl.pathname === "/dashboard") {
-      // `/dashboard` should redirect to the user's dashboard and
-      // use their current workspace, i.e. `/:orgId` or `/:userId`
-      url.pathname = `/${auth.orgId ?? auth.userId}`;
+      url.pathname = "/login";
       return NextResponse.redirect(url);
     }
 
