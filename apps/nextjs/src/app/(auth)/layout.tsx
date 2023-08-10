@@ -7,7 +7,7 @@ interface AuthLayoutProps {
   children: React.ReactNode;
 }
 
-export default function AuthLayout(props: AuthLayoutProps) {
+export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className="relative grid min-h-screen grid-cols-1 overflow-hidden md:grid-cols-3 lg:grid-cols-2">
       <div className="relative">
@@ -30,7 +30,7 @@ export default function AuthLayout(props: AuthLayoutProps) {
       </div>
 
       <div className="container absolute top-1/2 col-span-1 flex -translate-y-1/2 items-center md:static md:top-0 md:col-span-2 md:flex md:translate-y-0 lg:col-span-1">
-        {props.children}
+        {children}
       </div>
     </div>
   );

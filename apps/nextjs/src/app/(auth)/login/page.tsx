@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 
-import { OAuthSignIn } from "../oauth-login";
+import { OAuthLogin } from "../oauth-login";
 
 export const runtime = "edge";
 
@@ -14,13 +14,27 @@ export default function LoginPage() {
   return (
     <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
       <div className="flex flex-col space-y-2 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight">Login</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
         <p className="text-sm text-muted-foreground">
-          Sign in to continue with Rave
+          Pick up where you left off
         </p>
       </div>
+
       <div className="grid gap-6">
-        <OAuthSignIn />
+        {/* <EmailSignIn /> */}
+
+        {/* <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-background px-2 text-muted-foreground">
+              Or continue with
+            </span>
+          </div>
+        </div> */}
+
+        <OAuthLogin />
       </div>
 
       <p className="px-8 text-center text-sm text-muted-foreground">
@@ -28,7 +42,7 @@ export default function LoginPage() {
           href="/register"
           className="hover:text-brand underline underline-offset-4"
         >
-          Don&apos;t have an account? Sign up
+          New to Rave? Sign Up
         </Link>
       </p>
     </div>

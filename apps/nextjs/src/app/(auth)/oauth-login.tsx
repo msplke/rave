@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import { useSignIn } from "@clerk/nextjs";
 import { type OAuthStrategy } from "@clerk/types";
 
@@ -8,8 +8,8 @@ import { Icons } from "~/components";
 import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
 
-export function OAuthSignIn() {
-  const [isLoading, setIsLoading] = React.useState<OAuthStrategy | null>(null);
+export function OAuthLogin() {
+  const [isLoading, setIsLoading] = useState<OAuthStrategy | null>(null);
   const { signIn, isLoaded: signInLoaded } = useSignIn();
   const { toast } = useToast();
 
@@ -40,7 +40,7 @@ export function OAuthSignIn() {
       <Button
         variant="outline"
         className="bg-background"
-        onClick={() => void oauthSignIn("oauth_github")}
+        onClick={() => oauthSignIn("oauth_github")}
       >
         {isLoading === "oauth_github" ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
@@ -52,7 +52,7 @@ export function OAuthSignIn() {
       <Button
         variant="outline"
         className="bg-background"
-        onClick={() => void oauthSignIn("oauth_google")}
+        onClick={() => oauthSignIn("oauth_google")}
       >
         {isLoading === "oauth_google" ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
