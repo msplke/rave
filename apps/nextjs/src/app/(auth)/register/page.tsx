@@ -1,4 +1,4 @@
-import type { Metadata, Route } from "next";
+import { type Metadata } from "next";
 import Link from "next/link";
 
 import { OAuthLogin } from "../oauth-login";
@@ -40,11 +40,12 @@ export default function RegisterPage() {
       </div>
 
       <p className="px-8 text-center text-sm text-muted-foreground">
+        Already have an account?{" "}
         <Link
           href="/login"
           className="hover:text-brand underline underline-offset-4"
         >
-          Already have an account? Sign in
+          Sign in
         </Link>
       </p>
 

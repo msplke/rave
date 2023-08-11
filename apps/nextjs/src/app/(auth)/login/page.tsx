@@ -38,11 +38,12 @@ export default function LoginPage() {
       </div>
 
       <p className="px-8 text-center text-sm text-muted-foreground">
+        New to Rave?{" "}
         <Link
           href="/register"
           className="hover:text-brand underline underline-offset-4"
         >
-          New to Rave? Sign Up
+          Sign up
         </Link>
       </p>
     </div>

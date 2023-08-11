@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState, type ComponentPropsWithoutRef } from "react";
 import { Check, ChevronsUpDown, PlusCircle } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
@@ -37,7 +37,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { cn } from "~/utils/cnHelpers";
+import { cn } from "~/lib/utils";
 
 const groups = [
   {
@@ -66,18 +66,14 @@ const groups = [
 
 type Team = (typeof groups)[number]["teams"][number];
 
-type PopoverTriggerProps = React.ComponentPropsWithoutRef<
-  typeof PopoverTrigger
->;
+type PopoverTriggerProps = ComponentPropsWithoutRef<typeof PopoverTrigger>;
 
-type TeamSwitcherProps = PopoverTriggerProps;
+type WorkspaceSwitcherProps = PopoverTriggerProps;
 
-export default function TeamSwitcher({ className }: TeamSwitcherProps) {
-  const [open, setOpen] = React.useState(false);
-  const [showNewTeamDialog, setShowNewTeamDialog] = React.useState(false);
-  const [selectedTeam, setSelectedTeam] = React.useState<Team>(
-    groups[0]!.teams[0]!,
-  );
+export function WorkspaceSwitcher({ className }: WorkspaceSwitcherProps) {
+  const [open, setOpen] = useState(false);
+  const [showNewTeamDialog, setShowNewTeamDialog] = useState(false);
+  const [selectedTeam, setSelectedTeam] = useState<Team>(groups[0]!.teams[0]!);
 
   return (
     <Dialog open={showNewTeamDialog} onOpenChange={setShowNewTeamDialog}>
@@ -102,6 +98,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
             <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
+
         <PopoverContent className="w-[200px] p-0">
           <Command>
             <CommandList>
@@ -139,7 +136,9 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
                 </CommandGroup>
               ))}
             </CommandList>
+
             <CommandSeparator />
+
             <CommandList>
               <CommandGroup>
                 <DialogTrigger asChild>
@@ -158,6 +157,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
           </Command>
         </PopoverContent>
       </Popover>
+
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Create team</DialogTitle>
@@ -165,12 +165,14 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
             Add a new team to manage products and customers.
           </DialogDescription>
         </DialogHeader>
+
         <div>
           <div className="space-y-4 py-2 pb-4">
             <div className="space-y-2">
               <Label htmlFor="name">Team name</Label>
               <Input id="name" placeholder="Acme Inc." />
             </div>
+
             <div className="space-y-2">
               <Label htmlFor="plan">Subscription plan</Label>
               <Select>
@@ -184,6 +186,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
                       Trial for two weeks
                     </span>
                   </SelectItem>
+
                   <SelectItem value="pro">
                     <span className="font-medium">Pro</span> -{" "}
                     <span className="text-muted-foreground">
@@ -195,6 +198,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
             </div>
           </div>
         </div>
+
         <DialogFooter>
           <Button variant="outline" onClick={() => setShowNewTeamDialog(false)}>
             Cancel

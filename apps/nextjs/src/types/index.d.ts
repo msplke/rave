@@ -1,3 +1,15 @@
+export interface NavItem {
+  title: string;
+  href: string;
+  disabled?: boolean;
+}
+
+export type MainNavItem = NavItem;
+
+export interface DashboardConfig {
+  mainNav: MainNavItem[];
+}
+
 export interface SiteConfig {
   name: string;
   url: string;

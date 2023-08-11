@@ -1,30 +1,29 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
-import TeamSwitcher from "~/app/(dashboard)/components/team-switcher";
-import { Icons, MobileNav } from "~/components";
+import { Icons } from "~/components";
+import { cn } from "~/lib/utils";
 import { type MainNavItem } from "~/types";
-import { cn } from "~/utils/cnHelpers";
+import { WorkspaceSwitcher } from "./workspace-switcher";
 
 interface MainNavProps {
   items?: MainNavItem[];
-  children?: React.ReactNode;
 }
 
-export function MainNav({ items, children }: MainNavProps) {
+export function MainNav({ items }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex gap-4">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
       </Link>
-      <span className="mx-2 text-lg font-bold text-muted-foreground">/</span>
-      <TeamSwitcher />
+      <span className="mx-2 self-center text-xl font-bold text-muted-foreground">
+        /
+      </span>
+      <WorkspaceSwitcher />
 
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
@@ -45,17 +44,6 @@ export function MainNav({ items, children }: MainNavProps) {
           ))}
         </nav>
       ) : null}
-
-      <button
-        className="flex items-center space-x-2 md:hidden"
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-      >
-        {showMobileMenu ? <Icons.close /> : <Icons.logo />}
-        <span className="font-bold">Menu</span>
-      </button>
-      {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
-      )}
     </div>
   );
 }

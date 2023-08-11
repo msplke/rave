@@ -1,10 +1,6 @@
-import {
-  DashboardNav,
-  MainNav,
-  SiteFooter,
-  UserAccountNav,
-} from "~/components";
+import { UserAccountNav } from "~/components";
 import { dashboardConfig } from "~/config/dashboard";
+import { MainNav } from "./_components/main-nav";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -23,17 +19,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         </div>
       </header>
 
-      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
-        <aside className="hidden w-[200px] flex-col md:flex">
-          <DashboardNav items={dashboardConfig.sidebarNav} />
-        </aside>
+      <div className="container flex-1 gap-12">
         <main className="flex w-full flex-1 flex-col overflow-hidden">
           {children}
         </main>
       </div>
-
-      {/* <SiteFooter className="border-t" /> */}
-      <SiteFooter />
     </div>
   );
 }

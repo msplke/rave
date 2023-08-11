@@ -54,7 +54,7 @@ export async function UserAccountNav() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={user.profileImageUrl} alt={user.username ?? ""} />
+            <AvatarImage src={user.imageUrl} alt={user.username ?? ""} />
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
         </Button>
@@ -103,7 +103,7 @@ export async function UserAccountNav() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>
-          <Link href="/signout">
+          <Link href="/logout">
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
