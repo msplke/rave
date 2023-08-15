@@ -4,6 +4,8 @@
   "private": true,
   "main": "index.tsx",
   "scripts": {
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "clean": "git clean -xdf .expo .turbo node_modules",
     "dev": "expo start",
     "dev:android": "expo start --android",
