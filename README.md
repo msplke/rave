@@ -23,7 +23,7 @@ This project is based on the [create-t3-turbo](https://github.com/t3-oss/create-
 
 It uses [Turborepo](https://turbo.build/repo) and contains:
 
-```
+```text
 .github
   └─ workflows
       └─ CI with pnpm cache setup
@@ -47,7 +47,7 @@ packages
   ├─ config
   |   └─ Shared Tailwind & Eslint configs
   └─ db
-      └─ Typesafe db calls using Prisma
+      └─ Typesafe db calls with Drizzle & Planetscale
 ```
 
 ## Quickstart
@@ -60,15 +60,11 @@ To get it running, follow the steps below:
 # Install dependencies
 pnpm i
 
-# In packages/db/prisma update schema.prisma provider to use sqlite or use your own database provider
-- provider = "postgresql"
-+ provider = "sqlite"
-
 # Configure environment variables.
 # There is an `.env.example` in the root directory you can use for reference
 cp .env.example .env
 
-# Push the Prisma schema to your database
+# Push the Drizzle schema to the database
 pnpm db:push
 ```
 
@@ -77,17 +73,19 @@ pnpm db:push
 #### Use iOS Simulator
 
 1. Make sure you have XCode and XCommand Line Tools installed [as shown on Expo docs](https://docs.expo.dev/workflow/ios-simulator/).
-   > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` in the root dir, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
+
+> **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` in the root dir, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
 
 ```diff
 +  "dev": "expo start --ios",
 ```
 
-3. Run `pnpm dev` at the project root folder.
+2. Run `pnpm dev` at the project root folder.
 
 #### Use Android Emulator
 
 1. Install Android Studio tools [as shown on Expo docs](https://docs.expo.dev/workflow/android-studio-emulator/).
+
 2. Change the `dev` script at `apps/expo/package.json` to open the Android emulator.
 
 ```diff
@@ -106,6 +104,6 @@ Rave is currently _early_ in its development cycle. The app is not yet functiona
 
 ## Contact
 
-MSPL KE — makesomethingpeopleloveke@gmail.com.
+MSPL KE — <makesomethingpeopleloveke@gmail.com>.
 
 ©2023, MSPL KE. All rights reserved.

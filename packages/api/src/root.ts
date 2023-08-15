@@ -1,10 +1,10 @@
-import { communityRouter } from "./router/community";
-import { eventRouter } from "./router/event";
+import { authRouter } from "./router/auth";
+import { postRouter } from "./router/post";
 import { createTRPCRouter } from "./trpc";
 
 export const appRouter = createTRPCRouter({
-  community: communityRouter,
-  event: eventRouter,
+  auth: authRouter,
+  post: postRouter,
 });
 
 // Export type definition of API
