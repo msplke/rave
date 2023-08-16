@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["Rave"],
-  creator: "Peter Kibuchi",
+  creator: siteConfig.creator,
   authors: siteConfig.authors,
+  keywords: siteConfig.keywords,
   icons: {
     icon: "/favicon.ico",
     // shortcut: "/favicon-16x16.png",
@@ -41,12 +41,12 @@ export const metadata: Metadata = {
   },
   // manifest: `${siteConfig.url}/site.webmanifest`,
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    url: siteConfig.url,
+    type: "website",
+    locale: "en_US",
     // images: [
     //   {
     //     url: siteConfig.ogImage,
