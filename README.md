@@ -56,7 +56,7 @@ To get it running, follow the steps below:
 
 ### 1. Setup dependencies
 
-```diff
+```bash
 # Install dependencies
 pnpm i
 
@@ -74,11 +74,11 @@ pnpm db:push
 
 1. Make sure you have XCode and XCommand Line Tools installed [as shown on Expo docs](https://docs.expo.dev/workflow/ios-simulator/).
 
-> **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` in the root dir, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
+   > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` in the root dir, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
 
-```diff
-+  "dev": "expo start --ios",
-```
+   ```diff
+   +  "dev": "expo start --ios",
+   ```
 
 2. Run `pnpm dev` at the project root folder.
 
@@ -88,9 +88,9 @@ pnpm db:push
 
 2. Change the `dev` script at `apps/expo/package.json` to open the Android emulator.
 
-```diff
-+  "dev": "expo start --android",
-```
+   ```diff
+   +  "dev": "expo start --android",
+   ```
 
 3. Run `pnpm dev` at the project root folder.
 
