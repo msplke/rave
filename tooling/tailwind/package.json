@@ -21,7 +21,7 @@
     "@acme/eslint-config": "^0.2.0",
     "eslint": "^8.47.0",
     "tailwindcss-animate": "^1.0.6",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "eslintConfig": {
     "root": true,
