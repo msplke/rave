@@ -12,12 +12,13 @@
   },
   "dependencies": {
     "@planetscale/database": "^1.10.0",
-    "drizzle-orm": "^0.28.2"
+    "drizzle-orm": "^0.28.4"
   },
   "devDependencies": {
     "@acme/eslint-config": "^0.2.0",
-    "dotenv-cli": "^7.2.1",
-    "drizzle-kit": "^0.19.12",
+    "dotenv-cli": "^7.3.0",
+    "drizzle-kit": "^0.19.13",
+    "eslint": "^8.47.0",
     "typescript": "^5.1.6"
   },
   "eslintConfig": {
