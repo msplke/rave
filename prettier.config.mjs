@@ -8,7 +8,7 @@ const config = {
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
-  tailwindConfig: "./packages/config/tailwind",
+  tailwindConfig: "./tooling/tailwind",
   importOrder: [
     "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
     "^(next/(.*)$)|^(next$)",
@@ -17,7 +17,8 @@ const config = {
     "",
     "^@acme/(.*)$",
     "",
-    "^~/(.*)$",
+    "^~/",
+    "^[../]",
     "^[./]",
   ],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],

@@ -14,10 +14,10 @@
     "dev": "turbo dev --parallel",
     "dev:expo": "turbo dev --parallel --filter !@acme/nextjs --filter !@acme/db",
     "dev:nextjs": "turbo dev --parallel --filter !@acme/expo --filter !@acme/db",
-    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\" --ignore-path .gitignore",
-    "format:check": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\" --ignore-path .gitignore",
-    "lint": "turbo lint && manypkg check",
-    "lint:fix": "turbo lint:fix && manypkg fix",
+    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
+    "format:check": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
+    "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg check",
+    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg fix",
     "typecheck": "turbo typecheck"
   },
   "dependencies": {

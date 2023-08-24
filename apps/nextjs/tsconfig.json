@@ -6,8 +6,8 @@
       "~/*": ["./src/*"]
     },
     "plugins": [{ "name": "next" }],
-    "strict": true
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "exclude": [],
-  "include": ["next-env.d.ts", "src", "*.ts", "*.mjs", ".next/types/**/*.ts"]
+  "include": [".", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

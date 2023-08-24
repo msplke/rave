@@ -1,29 +1,30 @@
 {
-  "name": "@acme/api",
-  "version": "0.1.0",
+  "name": "@acme/{{ name }}",
   "private": true,
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/db": "^0.1.0",
-    "@clerk/nextjs": "^4.23.2",
-    "@trpc/client": "^10.37.1",
-    "@trpc/server": "^10.37.1",
-    "superjson": "1.13.1",
-    "zod": "^3.22.1"
   },
   "devDependencies": {
-    "@acme/eslint-config": "^0.2.0",
+    "@acme/eslint-config": "0.2.0",
     "eslint": "^8.47.0",
     "typescript": "^5.1.6"
   },
   "eslintConfig": {
-    "root": true,
     "extends": [
       "@acme/eslint-config/base"
     ]

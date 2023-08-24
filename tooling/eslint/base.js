@@ -15,6 +15,7 @@ const config = {
   parserOptions: { project: true },
   plugins: ["@typescript-eslint", "import"],
   rules: {
+    // "turbo/no-undeclared-env-vars": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
       { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
@@ -33,7 +34,6 @@ const config = {
     "**/*.config.js",
     "**/*.config.cjs",
     "**/.eslintrc.cjs",
-    "packages/config/**",
     ".next",
     "dist",
     "pnpm-lock.yaml",

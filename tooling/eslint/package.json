@@ -1,12 +1,17 @@
 {
   "name": "@acme/eslint-config",
   "version": "0.2.0",
-  "license": "MIT",
+  "private": true,
   "files": [
     "./base.js",
     "./nextjs.js",
     "./react.js"
   ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@next/eslint-plugin-next": "^13.4.16",
     "@types/eslint": "^8.44.2",
@@ -22,5 +27,11 @@
   "devDependencies": {
     "eslint": "^8.47.0",
     "typescript": "^5.1.6"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "./base.js"
+    ]
   }
 }

@@ -29,7 +29,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   // extra: {
   //   eas: {
-  //     projectId: "your-project-id",
+  //     projectId: "your-eas-project-id",
   //   },
   // },
   experiments: {

@@ -5,7 +5,6 @@ import { api } from "~/utils/api";
 
 export default function Post() {
   const { id } = useGlobalSearchParams();
-
   if (!id || typeof id !== "string") throw new Error("unreachable");
   const { data } = api.post.byId.useQuery({ id: parseInt(id) });
 
