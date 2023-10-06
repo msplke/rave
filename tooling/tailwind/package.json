@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@acme/eslint-config": "^0.2.0",
-    "eslint": "^8.50.0",
+    "eslint": "^8.51.0",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.2.2"
   },
