@@ -10,6 +10,7 @@
     "dev": "expo start",
     "dev:android": "expo start --android",
     "dev:ios": "expo start --ios",
+    "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json}\"",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -23,14 +24,14 @@
     "expo": "^49.0.13",
     "expo-constants": "~15.1.0",
     "expo-linking": "~6.0.0",
-    "expo-router": "^2.0.9",
+    "expo-router": "2.0.9",
     "expo-splash-screen": "~0.22.0",
     "expo-status-bar": "~1.7.1",
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.5",
-    "react-native-gesture-handler": "^2.13.1",
+    "react-native-gesture-handler": "~2.13.1",
     "react-native-safe-area-context": "4.7.2",
     "react-native-screens": "~3.25.0",
     "superjson": "1.13.3"
@@ -38,7 +39,9 @@
   "devDependencies": {
     "@acme/api": "^0.1.0",
     "@acme/eslint-config": "^0.2.0",
+    "@acme/prettier-config": "^0.1.0",
     "@acme/tailwind-config": "^0.1.0",
+    "@acme/tsconfig": "^0.1.0",
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",
     "@babel/runtime": "^7.23.1",
@@ -46,6 +49,7 @@
     "@types/babel__core": "^7.20.2",
     "@types/react": "^18.2.27",
     "eslint": "^8.51.0",
+    "prettier": "^3.0.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   },
@@ -55,5 +59,6 @@
       "@acme/eslint-config/base",
       "@acme/eslint-config/react"
     ]
-  }
+  },
+  "prettier": "@acme/prettier-config"
 }

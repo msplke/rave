@@ -10,23 +10,21 @@
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
     "db:push": "pnpm -F db push",
-    "db:studio": "pnpm -F db dev",
+    "db:studio": "pnpm -F db studio",
     "dev": "turbo dev --parallel",
-    "dev:expo": "turbo dev --parallel --filter !@acme/nextjs --filter !@acme/db",
-    "dev:nextjs": "turbo dev --parallel --filter !@acme/expo --filter !@acme/db",
-    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
-    "format:check": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
+    "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache'",
+    "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache'",
     "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg check",
     "lint:fix": "turbo lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg fix",
     "typecheck": "turbo typecheck"
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@acme/prettier-config": "^0.1.0",
     "@manypkg/cli": "^0.21.0",
     "@turbo/gen": "^1.10.15",
     "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.5",
     "turbo": "^1.10.15",
     "typescript": "^5.2.2"
-  }
+  },
+  "prettier": "@acme/prettier-config"
 }

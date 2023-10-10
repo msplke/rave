@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { headers } from "next/headers";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -12,7 +12,7 @@ import { Toaster } from "~/components/ui/toaster";
 import { siteConfig } from "~/config/site";
 import { cn } from "~/lib/utils";
 
-const fontSans = FontSans({
+const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -21,9 +21,12 @@ const fontCal = LocalFont({
   variable: "--font-cal",
 });
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
+/**
+ * Since we're passing `headers()` to the `TRPCReactProvider` we need to
+ * make the entire app dynamic. You can move the `TRPCReactProvider` further
+ * down the tree (e.g. /dashboard and onwards) to make part of the app statically rendered.
+ */
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -35,11 +38,12 @@ export const metadata: Metadata = {
   authors: siteConfig.authors,
   keywords: siteConfig.keywords,
   icons: {
+    apple: "/apple-touch-icon.png",
     icon: "/favicon.ico",
-    // shortcut: "/favicon-16x16.png",
-    // apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
   },
-  // manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: `${siteConfig.url}/site.webmanifest`,
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
@@ -67,14 +71,13 @@ export const metadata: Metadata = {
     // images: [`${siteConfig.url}/og.jpg`],
     // creator: "@example",
   },
-  metadataBase: new URL(siteConfig.url),
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ClerkProvider>
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en">
           <body
             className={cn(
               "min-h-screen bg-background font-sans antialiased",

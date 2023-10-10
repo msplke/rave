@@ -13,6 +13,10 @@
       "persistent": true,
       "cache": false
     },
+    "format": {
+      "outputs": ["node_modules/.cache/.prettiercache"],
+      "outputMode": "new-only"
+    },
     "lint": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
@@ -29,13 +33,8 @@
     }
   },
   "globalEnv": [
-    "CI",
     "CLERK_SECRET_KEY",
     "DATABASE_URL",
-    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-    "NODE_ENV",
-    "PORT",
-    "SKIP_ENV_VALIDATION",
-    "VERCEL_URL"
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY"
   ]
 }

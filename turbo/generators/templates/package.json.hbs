@@ -14,6 +14,7 @@
   }
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "@acme/eslint-config": "0.2.0",
+    "@acme/prettier-config": "^0.1.0",
+    "@acme/tsconfig": "^0.1.0",
     "eslint": "^8.47.0",
     "typescript": "^5.1.6"
   },
@@ -28,5 +31,6 @@
     "extends": [
       "@acme/eslint-config/base"
     ]
-  }
+  },
+  "prettier": "@acme/prettier-config"
 }

@@ -6,8 +6,10 @@
   "types": "./index.ts",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
     "lint": "eslint .",
     "push": "drizzle-kit push:mysql",
+    "studio": "drizzle-kit studio",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -16,9 +18,12 @@
   },
   "devDependencies": {
     "@acme/eslint-config": "^0.2.0",
+    "@acme/prettier-config": "^0.1.0",
+    "@acme/tsconfig": "^0.1.0",
     "dotenv-cli": "^7.3.0",
     "drizzle-kit": "^0.19.13",
     "eslint": "^8.51.0",
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
   "eslintConfig": {
@@ -26,5 +31,6 @@
     "extends": [
       "@acme/eslint-config/base"
     ]
-  }
+  },
+  "prettier": "@acme/prettier-config"
 }

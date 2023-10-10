@@ -15,4 +15,5 @@ export default {
   dbCredentials: {
     connectionString: process.env.DATABASE_URL,
   },
+  tablesFilter: ["rave_*"],
 } satisfies Config;

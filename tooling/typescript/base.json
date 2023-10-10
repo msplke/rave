@@ -18,6 +18,5 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["prettier.config.mjs"],
-  "exclude": ["node_modules", "dist", "build", ".next", ".expo"]
+  "exclude": ["node_modules", "build", "dist", ".next", ".expo"]
 }

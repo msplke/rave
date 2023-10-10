@@ -8,7 +8,6 @@
 - [Project Structure](#project-structure)
 - [Quickstart](#quickstart)
 - [Project Status](#project-status)
-- [Contact](#contact)
 
 ## Description
 
@@ -49,8 +48,12 @@ packages
 tooling
   ├─ eslint
   |   └─ Shared, fine-grained, ESLint presets
-  └─ tailwind
-      └─ Shared Tailwind configuration
+  ├─ prettier
+  |   └─ Shared Prettier configuration
+  ├─ tailwind
+  |   └─ Shared Tailwind configuration
+  └─ typescript
+      └─ Shared tsconfig you can extend from
 ```
 
 ## Quickstart
@@ -104,7 +107,3 @@ pnpm db:push
 🚧 **In Development** 🚧
 
 Rave is currently _early_ in its development cycle. The app is not yet functional but is being actively developed. You can watch the project and/or leave a star to receive updates.
-
-## Contact
-
-MSPL KE — <makesomethingpeopleloveke@gmail.com>.

@@ -28,6 +28,7 @@ import { db } from "@acme/db";
  * processing a request
  *
  */
+
 interface CreateContextOptions {
   auth: SignedInAuthObject | SignedOutAuthObject | null;
   req?: NextRequest;
@@ -72,6 +73,7 @@ export const createTRPCContext = (opts: { req: NextRequest }) => {
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
+
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
