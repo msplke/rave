@@ -22,7 +22,7 @@
     "@trpc/react-query": "^10.40.0",
     "@trpc/server": "^10.40.0",
     "expo": "^49.0.13",
-    "expo-constants": "~15.1.0",
+    "expo-constants": "~15.2.0",
     "expo-linking": "~6.0.0",
     "expo-router": "2.0.9",
     "expo-splash-screen": "~0.22.0",
