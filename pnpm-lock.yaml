@@ -145,8 +145,8 @@ importers:
         specifier: workspace:^0.1.0
         version: link:../../packages/db
       '@clerk/nextjs':
-        specifier: ^4.27.6
-        version: 4.27.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.27.7
+        version: 4.27.7(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-avatar':
         specifier: ^1.0.4
         version: 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.43)(react-dom@18.2.0)(react@18.2.0)
@@ -275,8 +275,8 @@ importers:
         specifier: workspace:^0.1.0
         version: link:../db
       '@clerk/nextjs':
-        specifier: ^4.27.6
-        version: 4.27.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.27.7
+        version: 4.27.7(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
       '@trpc/client':
         specifier: next
         version: 11.0.0-alpha-next-2023-11-03-11-28-35.97(@trpc/server@11.0.0-alpha-next-2023-11-03-11-28-35.97)
@@ -2046,8 +2046,8 @@ packages:
       - react
     dev: false
 
-  /@clerk/nextjs@4.27.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-wTXUo02SLX6AjjSPxU57O+xyPHcdTnVKAubT6pGp2iNhMQI8wUv1dU2Zm6dKoZRRiUXfG2KnjGdw6a5hiJ/qMA==}
+  /@clerk/nextjs@4.27.7(next@14.0.4)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-UnoZdjHgxJMGDlKlFFjuHKTPFr4SiXsn+ya6tJokPM6wAGJp2IjdoovF3C7vMLv8hgxEuodhWd0NpY7SmszB6g==}
     engines: {node: '>=14'}
     peerDependencies:
       next: '>=10'
