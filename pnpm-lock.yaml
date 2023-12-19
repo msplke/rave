@@ -64,7 +64,7 @@ importers:
         version: 1.7.1
       nativewind:
         specifier: ^4.0.16
-        version: 4.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.3.7)
+        version: 4.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.4.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -130,8 +130,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
       tailwindcss:
-        specifier: ^3.3.7
-        version: 3.3.7
+        specifier: ^3.4.0
+        version: 3.4.0
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -263,8 +263,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
       tailwindcss:
-        specifier: ^3.3.7
-        version: 3.3.7
+        specifier: ^3.4.0
+        version: 3.4.0
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -422,8 +422,8 @@ importers:
         specifier: 8.4.32
         version: 8.4.32
       tailwindcss:
-        specifier: ^3.3.7
-        version: 3.3.7
+        specifier: ^3.4.0
+        version: 3.4.0
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:^0.2.0
@@ -442,7 +442,7 @@ importers:
         version: 3.1.1
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.3.7)
+        version: 1.0.7(tailwindcss@3.4.0)
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -10416,14 +10416,14 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  /nativewind@4.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.3.7):
+  /nativewind@4.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.4.0):
     resolution: {integrity: sha512-QeRt4kmubo9XvxYb0vJh74h09fpwM0A4sN4bWo40DMxrrIEbqpgjHeow8pMN1wN8lH5PHttTHyJqDNS/dGoxYQ==}
     engines: {node: '>=16'}
     peerDependencies:
       tailwindcss: '>3.3.0'
     dependencies:
-      react-native-css-interop: 0.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.3.7)
-      tailwindcss: 3.3.7
+      react-native-css-interop: 0.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.4.0)
+      tailwindcss: 3.4.0
     transitivePeerDependencies:
       - '@babel/core'
       - react
@@ -11499,7 +11499,7 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-native-css-interop@0.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.3.7):
+  /react-native-css-interop@0.0.16(@babel/core@7.23.6)(react-native-reanimated@3.6.1)(react-native-safe-area-context@4.8.1)(react-native@0.73.1)(react@18.2.0)(tailwindcss@3.4.0):
     resolution: {integrity: sha512-BSejbQyWfvEqaEqNzq7JGITLvoOgZVnRa0Vn1NqQcWm9OPfNE/OTk6k1AatIQ8SHHg0fRJ9v8+OGJYBR0j01PQ==}
     engines: {node: '>=16'}
     peerDependencies:
@@ -11524,7 +11524,7 @@ packages:
       react-native: 0.73.1(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
       react-native-reanimated: 3.6.1(@babel/core@7.23.6)(@babel/plugin-proposal-nullish-coalescing-operator@7.18.6)(@babel/plugin-proposal-optional-chaining@7.21.0)(@babel/plugin-transform-arrow-functions@7.23.3)(@babel/plugin-transform-shorthand-properties@7.23.3)(@babel/plugin-transform-template-literals@7.23.3)(react-native@0.73.1)(react@18.2.0)
       react-native-safe-area-context: 4.8.1(react-native@0.73.1)(react@18.2.0)
-      tailwindcss: 3.3.7
+      tailwindcss: 3.4.0
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -12659,16 +12659,16 @@ packages:
       '@babel/runtime': 7.23.6
     dev: false
 
-  /tailwindcss-animate@1.0.7(tailwindcss@3.3.7):
+  /tailwindcss-animate@1.0.7(tailwindcss@3.4.0):
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
-      tailwindcss: 3.3.7
+      tailwindcss: 3.4.0
     dev: true
 
-  /tailwindcss@3.3.7:
-    resolution: {integrity: sha512-pjgQxDZPvyS/nG3ZYkyCvsbONJl7GdOejfm24iMt2ElYQQw8Jc4p0m8RdMp7mznPD0kUhfzwV3zAwa80qI0zmQ==}
+  /tailwindcss@3.4.0:
+    resolution: {integrity: sha512-VigzymniH77knD1dryXbyxR+ePHihHociZbXnLZHUyzf2MMs2ZVqlUrZ3FvpXP8pno9JzmILt1sZPD19M3IxtA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
