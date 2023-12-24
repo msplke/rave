@@ -1,8 +1,8 @@
 "use client";
 
+import type { OAuthStrategy } from "@clerk/types";
 import { useState } from "react";
 import { useSignIn } from "@clerk/nextjs";
-import { type OAuthStrategy } from "@clerk/types";
 
 import { Icons } from "~/components";
 import { Button } from "~/components/ui/button";

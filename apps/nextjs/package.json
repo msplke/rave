@@ -2,11 +2,12 @@
   "name": "@acme/nextjs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
     "dev": "pnpm with-env next dev",
-    "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
     "start": "pnpm with-env next start",
     "typecheck": "tsc --noEmit",
@@ -25,9 +26,9 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@t3-oss/env-nextjs": "^0.7.1",
-    "@tanstack/react-query": "^5.14.2",
-    "@tanstack/react-query-devtools": "^5.14.5",
-    "@tanstack/react-query-next-experimental": "5.14.2",
+    "@tanstack/react-query": "^5.14.6",
+    "@tanstack/react-query-devtools": "^5.14.6",
+    "@tanstack/react-query-next-experimental": "5.14.6",
     "@trpc/client": "next",
     "@trpc/next": "next",
     "@trpc/react-query": "next",
@@ -43,7 +44,7 @@
     "react-dom": "18.2.0",
     "superjson": "2.2.1",
     "tailwind-merge": "^2.2.0",
-    "zod": "^3.22.2"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^0.2.0",

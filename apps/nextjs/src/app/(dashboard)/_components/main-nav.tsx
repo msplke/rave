@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
+import type { MainNavItem } from "~/types";
 import { Icons } from "~/components";
 import { cn } from "~/lib/utils";
-import { type MainNavItem } from "~/types";
 import { WorkspaceSwitcher } from "./workspace-switcher";
 
 interface MainNavProps {

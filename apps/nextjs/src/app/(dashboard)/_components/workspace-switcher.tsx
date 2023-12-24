@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
+import { useState } from "react";
 import { Check, ChevronsUpDown, PlusCircle } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";

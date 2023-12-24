@@ -3,6 +3,10 @@ import { z } from "zod";
 
 export const env = createEnv({
   shared: {
+    NODE_ENV: z
+      .enum(["development", "production", "test"])
+      .default("development"),
+    VERCEL_ENV: z.enum(["development", "preview", "production"]).optional(),
     VERCEL_URL: z
       .string()
       .optional()
@@ -15,21 +19,27 @@ export const env = createEnv({
    */
   server: {
     CLERK_SECRET_KEY: z.string().optional(),
-    DATABASE_URL: z.string().url(),
+    DB_HOST: z.string(),
+    DB_NAME: z.string(),
+    DB_PASSWORD: z.string(),
+    DB_USERNAME: z.string(),
   },
   /**
    * Specify your client-side environment variables schema here.
    * For them to be exposed to the client, prefix them with `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
+    // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
    */
   runtimeEnv: {
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
-    DATABASE_URL: process.env.DATABASE_URL,
+    DB_HOST: process.env.DB_HOST,
+    DB_NAME: process.env.DB_NAME,
+    DB_PASSWORD: process.env.DB_PASSWORD,
+    DB_USERNAME: process.env.DB_USERNAME,
     PORT: process.env.PORT,
     VERCEL_URL: process.env.VERCEL_URL,
 

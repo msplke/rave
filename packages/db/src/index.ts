@@ -1,4 +1,4 @@
-import { Client } from "@planetscale/database";
+import { connect } from "@planetscale/database";
 import { drizzle } from "drizzle-orm/planetscale-serverless";
 
 import * as community from "./schema/community";
@@ -11,9 +11,10 @@ export { mySqlTable as tableCreator } from "./schema/_table";
 
 export * from "drizzle-orm";
 
-export const db = drizzle(
-  new Client({
-    url: process.env.DATABASE_URL,
-  }).connection(),
-  { schema },
-);
+const connection = connect({
+  host: process.env.DB_HOST!,
+  username: process.env.DB_USERNAME!,
+  password: process.env.DB_PASSWORD!,
+});
+
+export const db = drizzle(connection, { schema });

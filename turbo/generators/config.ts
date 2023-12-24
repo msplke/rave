@@ -1,5 +1,12 @@
 import { execSync } from "node:child_process";
-import type { PackageJson, PlopTypes } from "@turbo/gen";
+import type { PlopTypes } from "@turbo/gen";
+
+interface PackageJson {
+  name: string;
+  scripts: Record<string, string>;
+  dependencies: Record<string, string>;
+  devDependencies: Record<string, string>;
+}
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setGenerator("init", {
@@ -39,11 +46,6 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
       {
         type: "add",
-        path: "packages/{{ name }}/index.ts",
-        template: "export * from './src';",
-      },
-      {
-        type: "add",
         path: "packages/{{ name }}/src/index.ts",
         template: "export const name = '{{ name }}';",
       },
@@ -72,9 +74,10 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
          * Install deps and format everything
          */
         if ("name" in answers && typeof answers.name === "string") {
-          execSync("pnpm manypkg fix", {
-            stdio: "inherit",
-          });
+          // execSync("pnpm dlx sherif@latest --fix", {
+          //   stdio: "inherit",
+          // });
+          execSync("pnpm i", { stdio: "inherit" });
           execSync(
             `pnpm prettier --write packages/${answers.name}/** --list-different`,
           );

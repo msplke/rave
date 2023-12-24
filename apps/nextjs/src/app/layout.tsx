@@ -1,4 +1,5 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
+import { cache } from "react";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { headers } from "next/headers";
@@ -6,11 +7,11 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "~/styles/globals.css";
 
-import { TRPCReactProvider } from "~/app/providers";
 import { Analytics, TailwindIndicator, ThemeProvider } from "~/components";
 import { Toaster } from "~/components/ui/toaster";
 import { siteConfig } from "~/config/site";
 import { cn } from "~/lib/utils";
+import { TRPCReactProvider } from "~/trpc/react";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -60,10 +61,7 @@ export const metadata: Metadata = {
     //   },
     // ],
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
@@ -72,6 +70,9 @@ export const metadata: Metadata = {
     // creator: "@example",
   },
 };
+
+// Lazy load headers
+const getHeaders = cache(() => Promise.resolve(headers()));
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -84,7 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <ClerkProvider>
-          <TRPCReactProvider headers={headers()}>
+          <TRPCReactProvider headersPromise={getHeaders()}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               {children}
               <TailwindIndicator />

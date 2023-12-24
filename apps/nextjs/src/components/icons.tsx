@@ -1,3 +1,4 @@
+import type { LucideProps } from "lucide-react";
 import {
   AlertTriangle,
   Check,
@@ -17,7 +18,6 @@ import {
   Twitter,
   User,
   X,
-  type LucideProps,
 } from "lucide-react";
 
 export const Icons = {

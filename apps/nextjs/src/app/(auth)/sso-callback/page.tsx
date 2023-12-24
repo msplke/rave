@@ -1,8 +1,8 @@
 "use client";
 
+import type { HandleOAuthCallbackParams } from "@clerk/types";
 import { useEffect } from "react";
 import { useClerk } from "@clerk/nextjs";
-import { type HandleOAuthCallbackParams } from "@clerk/types";
 
 import { Icons } from "~/components";
 
