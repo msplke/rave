@@ -7,12 +7,10 @@ import { FlashList } from "@shopify/flash-list";
 import type { RouterOutputs } from "~/utils/api";
 import { api } from "~/utils/api";
 
-interface PostCardProps {
+function PostCard(props: {
   post: RouterOutputs["post"]["all"][number];
   onDelete: () => void;
-}
-
-function PostCard({ post, onDelete }: PostCardProps) {
+}) {
   return (
     <View className="flex flex-row rounded-lg bg-white/10 p-4">
       <View className="flex-grow">
@@ -20,18 +18,18 @@ function PostCard({ post, onDelete }: PostCardProps) {
           asChild
           href={{
             pathname: "/post/[id]",
-            params: { id: post.id },
+            params: { id: props.post.id },
           }}
         >
           <Pressable>
             <Text className="text-xl font-semibold text-pink-400">
-              {post.title}
+              {props.post.title}
             </Text>
-            <Text className="mt-2 text-white">{post.content}</Text>
+            <Text className="mt-2 text-white">{props.post.content}</Text>
           </Pressable>
         </Link>
       </View>
-      <Pressable onPress={onDelete}>
+      <Pressable onPress={props.onDelete}>
         <Text className="font-bold uppercase text-pink-400">Delete</Text>
       </Pressable>
     </View>
