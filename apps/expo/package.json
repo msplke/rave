@@ -4,12 +4,12 @@
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
-    "android": "expo run:android",
-    "ios": "expo run:ios",
     "clean": "git clean -xdf .expo .turbo node_modules",
     "dev": "expo start",
     "dev:android": "expo start --android",
     "dev:ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
