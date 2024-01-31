@@ -28,7 +28,7 @@ importers:
     dependencies:
       '@expo/metro-config':
         specifier: ^0.17.3
-        version: 0.17.3(@react-native/babel-preset@0.73.19)
+        version: 0.17.3(@react-native/babel-preset@0.73.20)
       '@shopify/flash-list':
         specifier: 1.6.3
         version: 1.6.3(@babel/runtime@7.23.9)(react-native@0.73.3)(react@18.2.0)
@@ -46,7 +46,7 @@ importers:
         version: 11.0.0-alpha-next-2023-11-03-11-28-35.97
       expo:
         specifier: ^50.0.4
-        version: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+        version: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
       expo-constants:
         specifier: ~15.4.5
         version: 15.4.5(expo@50.0.4)
@@ -208,8 +208,8 @@ importers:
         specifier: ^0.2.1
         version: 0.2.1(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
       lucide-react:
-        specifier: ^0.316.0
-        version: 0.316.0(react@18.2.0)
+        specifier: ^0.320.0
+        version: 0.320.0(react@18.2.0)
       next:
         specifier: ^14.1.0
         version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -2553,7 +2553,7 @@ packages:
       safe-json-stringify: 1.2.0
     dev: false
 
-  /@expo/cli@0.17.3(@react-native/babel-preset@0.73.19)(expo-modules-autolinking@1.10.2):
+  /@expo/cli@0.17.3(@react-native/babel-preset@0.73.20)(expo-modules-autolinking@1.10.2):
     resolution: {integrity: sha512-lIK8igsEQxTh4WuDlcEhE0wAJcDrAyjWDF00phdmwuSCpE5SaEXNlddOXvGxEVKPhUxHZUFo9NbfoQC+JVmkfA==}
     hasBin: true
     dependencies:
@@ -2565,7 +2565,7 @@ packages:
       '@expo/env': 0.2.1
       '@expo/image-utils': 0.4.1
       '@expo/json-file': 8.3.0
-      '@expo/metro-config': 0.17.3(@react-native/babel-preset@0.73.19)
+      '@expo/metro-config': 0.17.3(@react-native/babel-preset@0.73.20)
       '@expo/osascript': 2.0.33
       '@expo/package-manager': 1.1.1
       '@expo/plist': 0.1.0
@@ -2785,7 +2785,7 @@ packages:
       json5: 2.2.3
       write-file-atomic: 2.4.3
 
-  /@expo/metro-config@0.17.3(@react-native/babel-preset@0.73.19):
+  /@expo/metro-config@0.17.3(@react-native/babel-preset@0.73.20):
     resolution: {integrity: sha512-YW8ixbaz6yL7/Mg1rJJejiAAVQQKjGY1wXvT2Dh487r/r9/j1yE1YRS/oRY1yItYzbnHvO0p0jMnEGfiFYL3Tg==}
     peerDependencies:
       '@react-native/babel-preset': '*'
@@ -2798,7 +2798,7 @@ packages:
       '@expo/env': 0.2.1
       '@expo/json-file': 8.3.0
       '@expo/spawn-async': 1.7.2
-      '@react-native/babel-preset': 0.73.19(@babel/core@7.23.9)(@babel/preset-env@7.23.9)
+      '@react-native/babel-preset': 0.73.20(@babel/core@7.23.9)(@babel/preset-env@7.23.9)
       babel-preset-fbjs: 3.4.0(@babel/core@7.23.9)
       chalk: 4.1.2
       debug: 4.3.4
@@ -7639,7 +7639,7 @@ packages:
       expo: '*'
     dependencies:
       '@expo/config': 8.5.0
-      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -7649,7 +7649,7 @@ packages:
     peerDependencies:
       expo: '*'
     dependencies:
-      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
     dev: false
 
   /expo-font@11.10.2(expo@50.0.4):
@@ -7657,7 +7657,7 @@ packages:
     peerDependencies:
       expo: '*'
     dependencies:
-      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
       fontfaceobserver: 2.3.0
     dev: false
 
@@ -7666,7 +7666,7 @@ packages:
     peerDependencies:
       expo: '*'
     dependencies:
-      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
     dev: false
 
   /expo-linking@6.2.2(expo@50.0.4):
@@ -7725,7 +7725,7 @@ packages:
       '@react-navigation/bottom-tabs': 6.5.7(@react-navigation/native@6.1.6)(react-native-safe-area-context@4.8.2)(react-native-screens@3.29.0)(react-native@0.73.3)(react@18.2.0)
       '@react-navigation/native': 6.1.6(react-native@0.73.3)(react@18.2.0)
       '@react-navigation/native-stack': 6.9.12(@react-navigation/native@6.1.6)(react-native-safe-area-context@4.8.2)(react-native-screens@3.29.0)(react-native@0.73.3)(react@18.2.0)
-      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
       expo-constants: 15.4.5(expo@50.0.4)
       expo-linking: 6.2.2(expo@50.0.4)
       expo-splash-screen: 0.26.4(expo-modules-autolinking@1.10.2)(expo@50.0.4)
@@ -7750,7 +7750,7 @@ packages:
       expo: '*'
     dependencies:
       '@expo/prebuild-config': 6.7.4(expo-modules-autolinking@1.10.2)
-      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19)
+      expo: 50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20)
     transitivePeerDependencies:
       - encoding
       - expo-modules-autolinking
@@ -7761,15 +7761,15 @@ packages:
     resolution: {integrity: sha512-ddQEtCOgYHTLlFUe/yH67dDBIoct5VIULthyT3LRJbEwdpzAgueKsX2FYK02ldh440V87PWKCamh7R9evk1rrg==}
     dev: false
 
-  /expo@50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.19):
+  /expo@50.0.4(@babel/core@7.23.9)(@react-native/babel-preset@0.73.20):
     resolution: {integrity: sha512-8QWBvYZyKFd7pHxbtri8/ZITBR19QbrW2IkezAhs3ZOHR2kluSgNfyo9ojAe7GnOnE8hCB6Xe83Dbm0R3Ealhw==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.23.9
-      '@expo/cli': 0.17.3(@react-native/babel-preset@0.73.19)(expo-modules-autolinking@1.10.2)
+      '@expo/cli': 0.17.3(@react-native/babel-preset@0.73.20)(expo-modules-autolinking@1.10.2)
       '@expo/config': 8.5.4
       '@expo/config-plugins': 7.8.4
-      '@expo/metro-config': 0.17.3(@react-native/babel-preset@0.73.19)
+      '@expo/metro-config': 0.17.3(@react-native/babel-preset@0.73.20)
       '@expo/vector-icons': 14.0.0
       babel-preset-expo: 10.0.1(@babel/core@7.23.9)
       expo-asset: 9.0.2(expo@50.0.4)
@@ -9538,8 +9538,8 @@ packages:
       es5-ext: 0.10.62
     dev: true
 
-  /lucide-react@0.316.0(react@18.2.0):
-    resolution: {integrity: sha512-dTmYX1H4IXsRfVcj/KUxworV6814ApTl7iXaS21AimK2RUEl4j4AfOmqD3VR8phe5V91m4vEJ8tCK4uT1jE5nA==}
+  /lucide-react@0.320.0(react@18.2.0):
+    resolution: {integrity: sha512-HuMmfmFiWwctDkN27wklKVZr8UpwP2TTekLZ3xiLCEjx/STG1k0KLWMbBfIJ/lnNJQDfSjztDZSVU316xA+AQg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
