@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@planetscale/database": "^1.14.0",
+    "@planetscale/database": "^1.15.0",
     "drizzle-orm": "^0.29.3"
   },
   "devDependencies": {
