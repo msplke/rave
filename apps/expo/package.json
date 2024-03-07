@@ -15,13 +15,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@expo/metro-config": "^0.17.5",
+    "@expo/metro-config": "^0.17.6",
     "@shopify/flash-list": "1.6.3",
     "@tanstack/react-query": "^5.25.0",
     "@trpc/client": "next",
     "@trpc/react-query": "next",
     "@trpc/server": "next",
-    "expo": "^50.0.8",
+    "expo": "^50.0.11",
     "expo-constants": "~15.4.5",
     "expo-linking": "~6.2.2",
     "expo-router": "3.4.8",
