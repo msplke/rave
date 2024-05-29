@@ -1,6 +1,6 @@
 # Rave
 
-> An Expo mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses, as well as a NextJS web app for clubs and societies to engage existing members and find new ones.
+> Stay up-to-date on upcoming events happening across your own and other campuses.
 
 ## Table of Contents
 
@@ -11,10 +11,8 @@
 
 ## Description
 
-- Rave comprises two parts:
-
-1. An Expo mobile app that allows campus students to stay up-to-date on upcoming events happening across their own and other campuses. Whether it's club meetings, parties, sports, games, cultural events, volunteer opportunities, or workshops, Rave is the go-to for students who want to stay connected and make the most of their campus experience.
-2. A NextJS web app for clubs and societies to engage existing members and find new ones.
+- Rave enables campus students to stay up-to-date on upcoming events happening across their own and other campuses.
+- Whether it's club meetings, parties, sports, games, cultural events, volunteer opportunities, or workshops, Rave is the go-to for students who want to stay connected and make the most of their campus experience.
 
 ## Project Structure
 
@@ -30,10 +28,10 @@ It uses [Turborepo](https://turbo.build/repo) and contains:
   └─ Recommended extensions and settings for VSCode users
 apps
   ├─ expo
-  |   ├─ Expo SDK 49
+  |   ├─ Expo SDK 51
   |   ├─ React Native using React 18
   |   ├─ Navigation using Expo Router
-  |   ├─ Tailwind using Nativewind
+  |   ├─ Tailwind using NativeWind
   |   └─ Typesafe API calls using tRPC
   └─ next.js
       ├─ Next.js 14
@@ -42,9 +40,11 @@ apps
       └─ E2E Typesafe API Server & Client
 packages
   ├─ api
-  |   └─ tRPC v10 router definition
-  └─ db
-      └─ Typesafe db calls with Drizzle & Planetscale
+  |   └─ tRPC v11 router definition
+  ├─ db
+  |   └─ Typesafe db calls with Drizzle
+  └─ ui
+      └─ Beautiful, modern UI powered by shadcn-ui
 tooling
   ├─ eslint
   |   └─ Shared, fine-grained, ESLint presets
@@ -80,7 +80,7 @@ pnpm db:push
 
 1. Make sure you have XCode and XCommand Line Tools installed [as shown on Expo docs](https://docs.expo.dev/workflow/ios-simulator).
 
-   > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` in the root dir, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
+   > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` from `apps/expo`, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
 
    ```diff
    +  "dev": "expo start --ios",
@@ -106,4 +106,4 @@ pnpm db:push
 
 🚧 **In Development** 🚧
 
-Rave is currently _early_ in its development cycle. The app is not yet functional but is being actively developed. You can watch the project and/or leave a star to receive updates.
+Rave is currently _early_ in its development cycle.
