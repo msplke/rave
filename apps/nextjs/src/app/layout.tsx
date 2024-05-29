@@ -1,33 +1,20 @@
-import type { Metadata } from "next";
-import { cache } from "react";
-import { Inter } from "next/font/google";
-import LocalFont from "next/font/local";
-import { headers } from "next/headers";
+import type { Metadata, Viewport } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 
-import "~/styles/globals.css";
+import { cn } from "@acme/ui";
+import { ThemeToggle } from "@acme/ui/theme";
+import { Toaster } from "@acme/ui/toast";
 
-import { Analytics, TailwindIndicator, ThemeProvider } from "~/components";
-import { Toaster } from "~/components/ui/toaster";
+import "~/app/globals.css";
+
 import { siteConfig } from "~/config/site";
-import { cn } from "~/lib/utils";
+import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
-
-const fontSans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-const fontCal = LocalFont({
-  src: "../styles/CalSans-SemiBold.woff2",
-  variable: "--font-cal",
-});
-
-/**
- * Since we're passing `headers()` to the `TRPCReactProvider` we need to
- * make the entire app dynamic. You can move the `TRPCReactProvider` further
- * down the tree (e.g. /dashboard and onwards) to make part of the app statically rendered.
- */
-export const dynamic = "force-dynamic";
+import { Analytics } from "./_components/analytics";
+import { TailwindIndicator } from "./_components/tailwind-indicator";
+import { ThemeProvider } from "./_components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -44,7 +31,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(
+    env.VERCEL_ENV === "production" ? siteConfig.url : "http://localhost:3000",
+  ),
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
@@ -71,31 +60,37 @@ export const metadata: Metadata = {
   },
 };
 
-// Lazy load headers
-const getHeaders = cache(() => Promise.resolve(headers()));
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-          fontCal.variable,
-        )}
-      >
-        <ClerkProvider>
-          <TRPCReactProvider headersPromise={getHeaders()}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              {children}
-              <TailwindIndicator />
-            </ThemeProvider>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans text-foreground antialiased",
+            GeistSans.variable,
+            GeistMono.variable,
+          )}
+        >
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <TRPCReactProvider>{children}</TRPCReactProvider>
 
-            <Analytics />
-            <Toaster />
-          </TRPCReactProvider>
-        </ClerkProvider>
-      </body>
-    </html>
+            <div className="absolute bottom-4 right-4">
+              <ThemeToggle />
+            </div>
+            <TailwindIndicator />
+          </ThemeProvider>
+
+          <Analytics />
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

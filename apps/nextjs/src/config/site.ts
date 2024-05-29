@@ -1,4 +1,16 @@
-import type { SiteConfig } from "~/types";
+interface SiteConfig {
+  name: string;
+  description: string;
+  url: string;
+  creator: string;
+  authors: { name: string; url: string }[];
+  keywords: string[];
+  ogImage?: string;
+  links: {
+    github: string;
+    twitter?: string;
+  };
+}
 
 export const siteConfig: SiteConfig = {
   name: "Rave",

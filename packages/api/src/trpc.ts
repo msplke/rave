@@ -7,13 +7,6 @@
  * The pieces you will need to use are documented accordingly near the end.
  */
 
-import { auth } from "@clerk/nextjs/server";
-import { initTRPC, TRPCError } from "@trpc/server";
-import superjson from "superjson";
-import { ZodError } from "zod";
-
-import { db } from "@acme/db";
-
 /**
  * 1. CONTEXT
  *
@@ -26,16 +19,24 @@ import { db } from "@acme/db";
  *
  * @see https://trpc.io/docs/server/context
  */
+import { initTRPC, TRPCError } from "@trpc/server";
+import superjson from "superjson";
+import { ZodError } from "zod";
 
-export const createTRPCContext = (opts: { headers: Headers }) => {
-  const session = auth();
+import { db } from "@acme/db/client";
+
+export const createTRPCContext = (opts: {
+  headers: Headers;
+  session: { userId: string | null };
+}) => {
+  // const session = auth();
   const source = opts.headers.get("x-trpc-source") ?? "unknown";
 
-  console.log(">>> tRPC Request from", source, "by", session.userId);
+  console.log(">>> tRPC Request from", source, "by", opts.session.userId);
 
   return {
-    session,
     db,
+    session: opts.session,
   };
 };
 
@@ -59,6 +60,12 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
 });
 
 /**
+ * Create a server-side caller
+ * @see https://trpc.io/docs/server/server-side-calls
+ */
+export const createCallerFactory = t.createCallerFactory;
+
+/**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
  *
  * These are the pieces you use to build your tRPC API. You should import these
@@ -66,7 +73,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
  */
 
 /**
- * This is how you create new routers and sub-routers in your tRPC API.
+ * This is how you create new routers and subrouters in your tRPC API.
  *
  * @see https://trpc.io/docs/router
  */
@@ -90,7 +97,7 @@ export const publicProcedure = t.procedure;
  * @see https://trpc.io/docs/procedures
  */
 export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
-  if (!ctx.session?.userId) {
+  if (!ctx.session.userId) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
 

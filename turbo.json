@@ -1,5 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "experimentalUI": true,
   "globalDependencies": ["**/.env"],
   "pipeline": {
     "topo": {
@@ -25,11 +26,11 @@
       "outputMode": "new-only"
     },
     "lint": {
-      "dependsOn": ["^topo"],
+      "dependsOn": ["^topo", "^build"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["^topo"],
+      "dependsOn": ["^topo", "^build"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     },
     "clean": {
@@ -41,7 +42,7 @@
   },
   "globalEnv": [
     "CLERK_SECRET_KEY",
-    "DATABASE_URL",
-    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY"
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+    "POSTGRES_URL"
   ]
 }
